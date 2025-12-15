@@ -1,0 +1,319 @@
+.header {
+	background-color: white;
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2rem;
+}
+
+.nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.75rem 0;
+	position: relative;
+}
+
+/* Логотип */
+.logo {
+	text-decoration: none;
+	z-index: 1001;
+}
+
+.logoContainer {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	transition: transform 0.2s ease;
+}
+
+.logoContainer:hover {
+	transform: scale(1.02);
+}
+
+.logoText {
+	display: flex;
+	flex-direction: column;
+}
+
+.logoTitle {
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: rgba(225, 76, 4, 0.94);
+	line-height: 1.2;
+}
+
+.logoSubtitle {
+	font-size: 0.875rem;
+	color: #6b7280;
+	font-weight: 500;
+}
+
+/* Основное меню */
+.menu {
+	display: flex;
+	gap: 2rem;
+	align-items: center;
+}
+
+.menuLink {
+	color: #374151;
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 1rem;
+	padding: 0.5rem 0;
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 0.25rem;
+	background: none;
+	border: none;
+	cursor: pointer;
+	transition: color 0.2s ease;
+}
+
+.menuLink:hover {
+	color: #2563eb;
+}
+
+.menuLink::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background-color: #2563eb;
+	transition: width 0.2s ease;
+}
+
+.menuLink:hover::after {
+	width: 100%;
+}
+
+.dropdownIcon {
+	font-size: 1rem;
+	margin-left: 0.25rem;
+}
+
+/* Контейнер выпадающего меню */
+.dropdownContainer {
+	position: relative;
+}
+
+/* Выпадающее меню */
+.dropdownMenu {
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	background: white;
+	border-radius: 0.5rem;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+	min-width: 240px;
+	padding: 0.5rem 0;
+	z-index: 1001;
+	margin-top: 0.75rem;
+	opacity: 0;
+	animation: fadeIn 0.2s ease forwards;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateX(-50%) translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(-50%) translateY(0);
+	}
+}
+
+/* Особые стили для меню услуг */
+.servicesDropdown {
+	min-width: 600px;
+	left: 0;
+	transform: none;
+	animation: fadeInLeft 0.2s ease forwards;
+}
+
+@keyframes fadeInLeft {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.dropdownContent {
+	padding: 1.5rem;
+}
+
+.dropdownGrid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+}
+
+/* Элементы выпадающего меню */
+.dropdownItem {
+	display: block;
+	padding: 0.75rem 1rem;
+	text-decoration: none;
+	color: #374151;
+	transition: all 0.2s ease;
+	border-radius: 0.375rem;
+}
+
+.dropdownItem:hover {
+	background-color: #f3f4f6;
+	color: #2563eb;
+	transform: translateX(4px);
+}
+
+.dropdownItemContent {
+	display: flex;
+	flex-direction: column;
+}
+
+.dropdownItemTitle {
+	font-weight: 600;
+	font-size: 0.95rem;
+	margin-bottom: 0.25rem;
+}
+
+.dropdownItemDescription {
+	font-size: 0.85rem;
+	color: #6b7280;
+	line-height: 1.4;
+}
+
+/* Кнопка связи */
+.contactButton {
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	color: white;
+	padding: 0.75rem 1.5rem;
+	border-radius: 0.375rem;
+	text-decoration: none;
+	font-weight: 600;
+	transition: all 0.2s ease;
+	border: none;
+	cursor: pointer;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contactButton:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Мобильное меню */
+.mobileMenuButton {
+	display: none;
+	background: none;
+	border: none;
+	font-size: 1.5rem;
+	cursor: pointer;
+	color: #374151;
+	padding: 0.5rem;
+	z-index: 1001;
+}
+
+/* Оверлей для закрытия меню */
+.dropdownOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: transparent;
+	z-index: 1000;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+	.servicesDropdown {
+		min-width: 500px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	
+	.dropdownGrid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 768px) {
+	.container {
+		padding: 0 1rem;
+	}
+	
+	.menu {
+		display: none;
+	}
+	
+	.contactButton {
+		display: none;
+	}
+	
+	.mobileMenuButton {
+		display: block;
+	}
+	
+	/* Мобильное выпадающее меню */
+	.mobileMenu {
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		width: 300px;
+		background: white;
+		box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+		padding: 5rem 2rem 2rem;
+		z-index: 1002;
+		overflow-y: auto;
+		transform: translateX(100%);
+		transition: transform 0.3s ease;
+	}
+	
+	.mobileMenu.active {
+		transform: translateX(0);
+	}
+	
+	/* Показать меню при активации */
+	.nav.active .menu {
+		display: flex;
+		flex-direction: column;
+		position: fixed;
+		top: 80px;
+		left: 0;
+		right: 0;
+		background: white;
+		padding: 2rem;
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+		z-index: 999;
+	}
+}
+
+@media (max-width: 480px) {
+	.logoTitle {
+		font-size: 1rem;
+	}
+	
+	.logoSubtitle {
+		font-size: 0.75rem;
+	}
+	
+	.logoContainer {
+		gap: 0.5rem;
+	}
+}

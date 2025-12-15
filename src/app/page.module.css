@@ -1,141 +1,264 @@
-.page {
-  --background: #fafafa;
-  --foreground: #fff;
-
-  --text-primary: #000;
-  --text-secondary: #666;
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
-  display: flex;
-  min-height: 100vh;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
+.container {
+	display: flex;
+	height: 60vh;
+	width: 100vw;
+	overflow: hidden;
+	position: relative;
 }
 
-.main {
-  display: flex;
-  min-height: 100vh;
-  width: 100%;
-  max-width: 800px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
+/* Общие стили для обеих секций */
+.section {
+	flex: 1;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	color: white;
+	overflow: hidden;
+	transition: flex 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+	min-width: 50%;
 }
 
-.intro {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 24px;
+.section:hover {
+	flex: 1.2;
 }
 
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
+.section:hover .bgImage {
+	transform: scale(1.05);
 }
 
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
+.section:hover .linkText {
+	transform: translateX(8px);
 }
 
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
+/* Контент секции */
+.sectionContent {
+	position: relative;
+	z-index: 2;
+	text-align: center;
+	padding: 2rem;
+	max-width: 500px;
+	transition: transform 0.3s ease;
 }
 
-.ctas {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
+.section:hover .sectionContent {
+	transform: scale(1.02);
 }
 
-.ctas a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
-  cursor: pointer;
-  width: fit-content;
-  font-weight: 500;
+.sectionTitle {
+	font-size: 3.5rem;
+	font-weight: 700;
+	margin-bottom: 1.5rem;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+	line-height: 1.1;
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
+.sectionDescription {
+	font-size: 1.25rem;
+	margin-bottom: 2rem;
+	opacity: 0.9;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+	line-height: 1.6;
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
+.linkText {
+	font-size: 1.125rem;
+	font-weight: 600;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	transition: transform 0.3s ease;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
+/* Стили для изображений */
+.imageWrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1;
+	overflow: hidden;
 }
 
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
-  }
-
-  .intro {
-    gap: 16px;
-  }
-
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
-  }
+.bgImage {
+	object-fit: cover;
+	transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+	opacity: 0; /* Начальная прозрачность */
+	animation: imageFadeInGradual 0.5s ease-out forwards;
+	animation-delay: 0.3s; /* Задержка перед появлением */
 }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
+@keyframes imageFadeInGradual {
+	0% {
+		opacity: 0;
+		filter: brightness(0.8) contrast(1.2); /* Начальные фильтры */
+	}
+	50% {
+		opacity: 0.5;
+		filter: brightness(0.9) contrast(1.1);
+	}
+	100% {
+		opacity: 1;
+		filter: brightness(1) contrast(1);
+	}
+}
 
-  .page {
-    --background: #000;
-    --foreground: #000;
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: linear-gradient(
+		45deg,
+		rgba(0, 0, 0, 0.5) 0%,
+		rgba(0, 0, 0, 0.2) 100%
+	);
+	transition: background 0.3s ease;
+	opacity: 0;
+	animation: overlayFadeIn 0.8s ease-out forwards;
+	animation-delay: 0.2s; /* Задержка для оверлея */
+}
 
-    --text-primary: #ededed;
-    --text-secondary: #999;
+@keyframes overlayFadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
 
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
-  }
+.section:hover .overlay {
+	background: linear-gradient(
+		45deg,
+		rgba(0, 0, 0, 0.4) 0%,
+		rgba(0, 0, 0, 0.15) 100%
+	);
+}
+
+/* Конкретные стили для каждой секции */
+.securitySection .overlay {
+	background: linear-gradient(
+		45deg,
+		rgba(37, 99, 235, 0.3) 0%,
+		rgba(0, 0, 0, 0.4) 100%
+	);
+}
+
+.securitySection:hover .overlay {
+	background: linear-gradient(
+		45deg,
+		rgba(37, 99, 235, 0.25) 0%,
+		rgba(0, 0, 0, 0.3) 100%
+	);
+}
+
+.oneCSection .overlay {
+	background: linear-gradient(
+		45deg,
+		rgba(16, 185, 129, 0.3) 0%,
+		rgba(0, 0, 0, 0.4) 100%
+	);
+}
+
+.oneCSection:hover .overlay {
+	background: linear-gradient(
+		45deg,
+		rgba(16, 185, 129, 0.25) 0%,
+		rgba(0, 0, 0, 0.3) 100%
+	);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+	.container {
+		flex-direction: column;
+		height: 100vh;
+	}
+
+	.section {
+		flex: 1;
+		min-height: 50%;
+		min-width: 100%;
+	}
+
+	.section:hover {
+		flex: 1.2;
+	}
+
+	.sectionTitle {
+		font-size: 2.5rem;
+	}
+
+	.sectionDescription {
+		font-size: 1.125rem;
+	}
+
+	/* Уменьшаем задержку анимаций на мобильных для лучшего UX */
+	.bgImage {
+		animation-delay: 0.1s;
+	}
+
+	.overlay {
+		animation-delay: 0.1s;
+	}
+}
+
+/* Анимация появления при загрузке для текста */
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.sectionContent {
+	animation: fadeInUp 0.6s ease forwards;
+	opacity: 0;
+	animation-delay: 0.5s; /* Увеличиваем задержку чтобы изображение появлялось раньше */
+}
+
+.oneCSection .sectionContent {
+	animation-delay: 0.7s;
+}
+
+/* Для предотвращения FOUC (Flash of Unstyled Content) */
+.container.loading .bgImage,
+.container.loading .overlay {
+	animation: none;
+	opacity: 0;
+}
+
+.container.loading .sectionContent {
+	animation: none;
+	opacity: 0;
+}
+
+/* Добавляем эффект загрузки для изображений */
+.bgImage.loading {
+	background: linear-gradient(
+		90deg,
+		rgba(255, 255, 255, 0.1) 25%,
+		rgba(255, 255, 255, 0.2) 50%,
+		rgba(255, 255, 255, 0.1) 75%
+	);
+	background-size: 200% 100%;
+	animation: loadingShimmer 1.5s infinite;
+}
+
+@keyframes loadingShimmer {
+	0% {
+		background-position: -200% 0;
+	}
+	100% {
+		background-position: 200% 0;
+	}
 }
