@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import styles from './Footer.module.css';
+import Icon from './Icon';
 
 export default function Footer() {
 	const currentYear = new Date().getFullYear();
@@ -9,19 +10,49 @@ export default function Footer() {
 			<div className={styles.container}>
 				{/* Верхняя часть футера */}
 				<div className={styles.topSection}>
-					{/* Лого и описание */}
-					<div className={styles.brand}>
-						<Link
-							href='/'
-							className={styles.logo}
-						>
-							МойСайт
-						</Link>
-						<p className={styles.description}>
-							Создаем качественные решения для вашего бизнеса
-						</p>
+					{/* Контакты */}
+					<div className={styles.navColumn}>
+						<h4 className={styles.navTitle}>Контакты</h4>
+						<div className={styles.iconGroup}>
+							<Icon
+								size={30}
+								name='phone'
+							/>
+							<div style={{ display: 'flex', flexDirection: 'column' }}>
+								<a
+									className={styles.navLink}
+									href='tel:+73912749064'
+								>
+									+7 (391) 274-90-64
+								</a>
+								<a
+									className={styles.navLink}
+									href='tel:+73912749074'
+								>
+									+7 (391) 274-90-74
+								</a>
+							</div>
+						</div>
+						<div className={styles.iconGroup}>
+							<Icon
+								size={30}
+								name='clock'
+							/>
+							<p className={styles.iconGroupP}>Ежедневно с 09:00 до 18:00</p>
+						</div>
+						<div className={styles.iconGroup}>
+							<Icon
+								className={styles.iconGroupIcon}
+								size={30}
+								name='map-pin'
+							/>
+							<p className={styles.iconGroupP}>
+								660111, г. Красноярск, ул. Пограничников, здание 101, офис 202.
+							</p>
+						</div>
 					</div>
 
+					{/* Карта */}
 					<div style={{ position: 'relative', overflow: 'hidden' }}>
 						<a
 							href='https://yandex.ru/maps/62/krasnoyarsk/?utm_medium=mapframe&utm_source=maps'
@@ -54,54 +85,6 @@ export default function Footer() {
 							// allowFullScreen={true}
 							style={{ position: 'relative', border: 'none' }}
 						></iframe>
-					</div>
-
-					{/* Навигация в футере */}
-					<div className={styles.footerNav}>
-						<div className={styles.navColumn}>
-							<h4 className={styles.navTitle}>Навигация</h4>
-							<Link
-								href='/'
-								className={styles.navLink}
-							>
-								Главная
-							</Link>
-							<Link
-								href='/about'
-								className={styles.navLink}
-							>
-								О нас
-							</Link>
-							<Link
-								href='/services'
-								className={styles.navLink}
-							>
-								Услуги
-							</Link>
-							<Link
-								href='/contact'
-								className={styles.navLink}
-							>
-								Контакты
-							</Link>
-						</div>
-
-						<div className={styles.navColumn}>
-							<h4 className={styles.navTitle}>Контакты</h4>
-							<a
-								href='tel:+79999999999'
-								className={styles.navLink}
-							>
-								+7 (999) 999-99-99
-							</a>
-							<a
-								href='mailto:info@mysite.ru'
-								className={styles.navLink}
-							>
-								info@mysite.ru
-							</a>
-							<p className={styles.address}>г. Москва, ул. Примерная, д. 1</p>
-						</div>
 					</div>
 				</div>
 
