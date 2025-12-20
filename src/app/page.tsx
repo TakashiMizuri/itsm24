@@ -6,18 +6,24 @@ export default function Home() {
 	return (
 		<main className={styles.container}>
 			{/* Левая секция - Системы безопасности */}
-			<Link href="/itsm-security" className={`${styles.section} ${styles.securitySection}`}>
+			<Link
+				href='/itsm-security'
+				className={`${styles.section} ${styles.securitySection}`}
+			>
 				<div className={styles.sectionContent}>
-					<h1 className={styles.sectionTitle}>Системы безопасности</h1>
+					<h1 className={styles.sectionTitle}>
+						Системы безопасности и видеонаблюдения
+					</h1>
 					<p className={styles.sectionDescription}>
-						Полный комплекс услуг по проектированию и установке систем безопасности
+						Полный комплекс услуг по проектированию и установке систем
+						безопасности
 					</p>
 					<span className={styles.linkText}>Подробнее →</span>
 				</div>
 				<div className={styles.imageWrapper}>
 					<Image
-						src="/security-bg.jpg"
-						alt="Системы безопасности"
+						src='/security-bg.jpg'
+						alt='Системы безопасности и видеонаблюдения'
 						fill
 						className={styles.bgImage}
 						priority
@@ -26,7 +32,10 @@ export default function Home() {
 				</div>
 			</Link>
 			{/* Правая секция - 1С продукты */}
-			<Link href="/itsm-1c" className={`${styles.section} ${styles.oneCSection}`}>
+			<Link
+				href='/itsm-1c'
+				className={`${styles.section} ${styles.oneCSection}`}
+			>
 				<div className={styles.sectionContent}>
 					<h1 className={styles.sectionTitle}>1С продукты</h1>
 					<p className={styles.sectionDescription}>
@@ -36,8 +45,8 @@ export default function Home() {
 				</div>
 				<div className={styles.imageWrapper}>
 					<Image
-						src="/1c-bg.png"
-						alt="1С продукты"
+						src='/1c-bg.png'
+						alt='1С продукты'
 						fill
 						className={styles.bgImage}
 						priority
