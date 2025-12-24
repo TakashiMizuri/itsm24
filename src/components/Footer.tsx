@@ -15,7 +15,7 @@ export default function Footer() {
 						<h4 className={styles.navTitle}>Контакты</h4>
 						<div className={styles.iconGroup}>
 							<Icon
-								size={30}
+								size={26}
 								name='phone'
 							/>
 							<div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -35,7 +35,7 @@ export default function Footer() {
 						</div>
 						<div className={styles.iconGroup}>
 							<Icon
-								size={30}
+								size={26}
 								name='clock'
 							/>
 							<p className={styles.iconGroupP}>Ежедневно с 09:00 до 18:00</p>
@@ -43,7 +43,7 @@ export default function Footer() {
 						<div className={styles.iconGroup}>
 							<Icon
 								className={styles.iconGroupIcon}
-								size={30}
+								size={26}
 								name='map-pin'
 							/>
 							<p className={styles.iconGroupP}>
@@ -53,7 +53,7 @@ export default function Footer() {
 					</div>
 
 					{/* Карта */}
-					<div style={{ position: 'relative', overflow: 'hidden' }}>
+					<div style={{ position: 'relative', overflow: 'hidden'}}>
 						<a
 							href='https://yandex.ru/maps/62/krasnoyarsk/?utm_medium=mapframe&utm_source=maps'
 							style={{
@@ -83,7 +83,7 @@ export default function Footer() {
 							height='400'
 							// frameborder='1'
 							// allowFullScreen={true}
-							style={{ position: 'relative', border: 'none' }}
+							style={{ position: 'relative', border: 'none', borderRadius: '0.5rem' }}
 						></iframe>
 					</div>
 				</div>

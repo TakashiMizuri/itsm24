@@ -79,7 +79,7 @@
 }
 
 .menuLink:hover {
-  color: #2563eb;
+  color: #e14c04f0;
 }
 
 .menuLink::after {
@@ -89,7 +89,7 @@
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #2563eb;
+  background-color: #e14c04f0;
   transition: width 0.2s ease;
 }
 
@@ -125,7 +125,7 @@
 }
 
 .dropdownToggleButton:hover {
-  color: #2563eb;
+  color: #e14c04f0;
 }
 
 .dropdownIcon {
@@ -199,7 +199,7 @@
 
 .dropdownItem:hover {
   background-color: #f8fafc;
-  color: #2563eb;
+  color: #e14c04f0;
 }
 
 .dropdownItemContent {
@@ -221,7 +221,7 @@
 
 /* Кнопка связи */
 .contactButton {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #e14c04f0;
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 0.375rem;

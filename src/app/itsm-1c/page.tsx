@@ -1,0 +1,395 @@
+'use client';
+
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import styles from './page.module.css';
+import Icon from '@/components/Icon';
+
+export default function Itsm1C() {
+	const [formOpen, setFormOpen] = useState(false);
+
+	const toggleForm = () => {
+		setFormOpen(!formOpen);
+	};
+
+	return (
+		<div className={styles.page}>
+			{/* Секция контактов */}
+			<section className={styles.contactsSection}>
+				<div className={styles.container}>
+					<div className={styles.contactsGrid}>
+						<div className={styles.contactCard}>
+							<Icon
+								className={styles.iconGroupIcon}
+								size={26}
+								name='map-pin'
+							/>
+							<div className={styles.contactContent}>
+								<p className={styles.contactText}>
+									г. Красноярск,
+									<br />
+									ул. Пограничников, 101
+								</p>
+							</div>
+						</div>
+						<div className={styles.contactCard}>
+							<Icon
+								size={26}
+								name='clock'
+							/>
+							<div className={styles.contactContent}>
+								<p className={styles.contactText}>
+									Ежедневно
+									<br />с 09:00 до 18:00
+								</p>
+							</div>
+						</div>
+						<div className={styles.contactCard}>
+							<Icon
+								size={26}
+								name='phone'
+							/>
+							<div className={styles.contactContent}>
+								<p className={styles.contactText}>
+									+7 (391) 274-90-64
+									<br />
+									+7 (391) 274-90-74
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			{/* Герой секция */}
+			<section className={styles.hero}>
+				<div className={styles.heroContent}>
+					<h1 className={styles.heroTitle}>1C продукты в Красноярске</h1>
+					<p className={styles.heroDescription}>
+						Комплексные услуги по внедрению, сопровождению, консультации 1С.
+						Более 5 лет на рынке
+					</p>
+					{/* <div className={styles.heroButtons}>
+						<Link
+							href='/services/security'
+							className={styles.primaryButton}
+						>
+							Системы безопасности
+						</Link>
+						<Link
+							href='/services/1c'
+							className={styles.secondaryButton}
+						>
+							1С интеграции
+						</Link>
+					</div> */}
+				</div>
+				<Image
+					src='/smiling-businesswoman-enjoying-talk-with-colleagues-teamwork-with-laptops.jpg'
+					alt='IT решения для бизнеса'
+					width={500}
+					height={500}
+					className={styles.heroImg}
+					priority
+				/>
+			</section>
+
+			{/* Форма заказа звонка */}
+			{formOpen && (
+				<div className={styles.formOverlay}>
+					<div className={styles.formContainer}>
+						<button
+							className={styles.closeButton}
+							onClick={toggleForm}
+						>
+							×
+						</button>
+						<h3 className={styles.formTitle}>Заказать звонок</h3>
+						<form className={styles.callForm}>
+							<input
+								type='text'
+								placeholder='Ваше имя'
+								className={styles.formInput}
+							/>
+							<input
+								type='tel'
+								placeholder='Ваш телефон'
+								className={styles.formInput}
+							/>
+							<button
+								type='submit'
+								className={styles.submitButton}
+							>
+								Заказать
+							</button>
+						</form>
+					</div>
+				</div>
+			)}
+
+			{/* Секция Наши услуги */}
+			<section className={styles.sectionDark}>
+				<div className={styles.container}>
+					<h2 className={styles.sectionTitle}>НАШИ УСЛУГИ</h2>
+					<div className={styles.productsGrid}>
+						<div className={styles.productCard}>
+							<div className={styles.productImage}>
+								<Image
+									src='/closeup-caucasian-software-coder-hands-typing-keyboard-front-computer-screens-with-programming-interface-database-developer-sitting-desk-writing-algorithm-it-agency.jpg'
+									alt='Программы 1С'
+									width={400}
+									height={300}
+									className={styles.productImg}
+								/>
+							</div>
+							<h3 className={styles.productTitle}>Программы 1С</h3>
+							<p className={styles.productDescription}>
+								Полный спектр программных продуктов 1С для автоматизации
+								бухгалтерского учета, управления предприятием, торговлей и
+								складом.
+							</p>
+						</div>
+						<div className={styles.productCard}>
+							<div className={styles.productImage}>
+								<Image
+									src='/young-woman-working-office-with-laptop-headphones-white-wall-customer-service-call-center.jpg'
+									alt='Сопровождение 1С'
+									width={400}
+									height={300}
+									className={styles.productImg}
+								/>
+							</div>
+							<h3 className={styles.productTitle}>Сопровождение 1С</h3>
+							<p className={styles.productDescription}>
+								Техническая поддержка, обновление конфигураций, консультации,
+								удаленное администрирование и обслуживание программ 1С.
+							</p>
+						</div>
+						<div className={styles.productCard}>
+							<div className={styles.productImage}>
+								<Image
+									src='/man-woman-working-diagrams-together.jpg'
+									alt='Консультация 1С'
+									width={400}
+									height={300}
+									className={styles.productImg}
+								/>
+							</div>
+							<h3 className={styles.productTitle}>Консультация 1С</h3>
+							<p className={styles.productDescription}>
+								Профессиональные консультации по выбору, внедрению и
+								использованию программ 1С. Обучение персонала работе с
+								программами.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			{/* Секция Квалификация */}
+			<section className={styles.section}>
+				<div className={styles.container}>
+					<div className={styles.qualificationSection}>
+						<div className={styles.qualificationContent}>
+							<h2 className={styles.sectionTitle}>КВАЛИФИКАЦИЯ</h2>
+							<p className={styles.qualificationText}>
+								Квалификация сотрудников ООО «АйТиСМ» подтверждается
+								Сертификатами, которые выдает 1С по результатам испытаний. У
+								сотрудников ООО «АйТиСМ»:
+							</p>
+							<ul className={styles.certificatesList}>
+								<li>29 сертификатов «1С:Профессионал»</li>
+								<li>10 сертификатов «1С:Специалист»</li>
+								<li>Сертификат Руководителя проектов</li>
+								<li>
+									Сертификаты на право работы в регистраторе 1С:Отчетность
+								</li>
+							</ul>
+						</div>
+						<Image
+							src='/group-people-working-out-business-plan-office.jpg'
+							alt='Сертификаты 1С'
+							width={500}
+							height={350}
+							className={styles.qualificationImg}
+						/>
+					</div>
+				</div>
+			</section>
+
+			{/* Секция С кем работаем */}
+			<section className={styles.sectionDark}>
+				<div className={styles.container}>
+					<h2 className={styles.sectionTitle}>С КЕМ РАБОТАЕМ</h2>
+					<div className={styles.clientsGrid}>
+						<div className={styles.clientCard}>
+							<div className={styles.clientIcon}>📊</div>
+							<h3 className={styles.clientTitle}>С бухгалтерами</h3>
+							<p className={styles.clientDescription}>
+								Быстро и без ошибок научим вести бухучет, соблюдая технологию
+								работы в программах, чтобы отчетность формировалась
+								автоматически. Консультируем каждого бухгалтера по его сфере
+								деятельности, а при необходимости, адаптируем программное
+								обеспечение 1С к потребностям клиента.
+							</p>
+						</div>
+						<div className={styles.clientCard}>
+							<div className={styles.clientIcon}>👔</div>
+							<h3 className={styles.clientTitle}>С руководителями</h3>
+							<p className={styles.clientDescription}>
+								Работаем с руководителями различного уровня, чтобы сокращать
+								расходы, повышать продажи и сохранять клиентов, используя
+								различное программное обеспечение 1С. Помогаем принимать
+								обоснованные управленческие решения на основе точных данных.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			{/* Секция Вопросы, которые мы решаем */}
+			<section className={styles.section}>
+				<div className={styles.container}>
+					<h2 className={styles.sectionTitle}>ВОПРОСЫ, КОТОРЫЕ МЫ РЕШАЕМ</h2>
+					<div className={styles.servicesGrid}>
+						{[
+							'Бесплатный подбор, продажа, установка программного обеспечения «1С» и консультация по работе с ним',
+							'Оказание услуг по доработке программ на базе «1С»',
+							'Подключение к сдаче отчетности в контролирующие органы прямо из ваших программ 1С через оператора связи Калуга-Астрал (ФНС, ФСС, Пенсионный фонд, Росстат). Вы платите только фиксированную цену в Калуга-Астрал, подключим мы бесплатно. Предоставим скидку от 3 компаний',
+							'Аренда места на сервере',
+							'Услуги системного администратора и системотехника',
+							'Создание ЭЦП',
+						].map((service, index) => (
+							<div
+								key={index}
+								className={styles.serviceItem}
+							>
+								<div className={styles.serviceIcon}>•</div>
+								<p>{service}</p>
+							</div>
+						))}
+					</div>
+				</div>
+			</section>
+
+			{/* Секция Спецпредложения */}
+			<section className={styles.promoSection}>
+				<div className={styles.container}>
+					<h2 className={styles.promoTitle}>СПЕЦПРЕДЛОЖЕНИЯ</h2>
+					<div className={styles.promoContent}>
+						<div className={styles.promoCard}>
+							<h3 className={styles.promoCardTitle}>
+								Дарим антивирус Лаборатории Касперского при покупке
+								профессиональных версий программных продуктов
+							</h3>
+						</div>
+						<div className={styles.promoForm}>
+							<h3 className={styles.formTitle}>
+								Затрудняетесь с выбором программы 1С?
+							</h3>
+							<p className={styles.formSubtitle}>
+								Просто заполните форму! Мы перезвоним и подберем для вас
+								оптимальное решение 1С!
+							</p>
+							<button
+								className={styles.formButton}
+								onClick={toggleForm}
+							>
+								ЗАПОЛНИТЬ ФОРМУ
+							</button>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			{/* Секция О нас */}
+			<section className={styles.sectionDark}>
+				<div className={styles.container}>
+					<h2 className={styles.sectionTitle}>О нас</h2>
+					<div className={styles.aboutGrid}>
+						<div className={styles.aboutContent}>
+							<p className={styles.aboutText}>
+								Группа компаний «АйТиСМ» готовы предложить Вам комплексные
+								профессиональные решения в области автоматизации
+								бизнес-процессов:
+							</p>
+							<ul className={styles.aboutList}>
+								<li>
+									<strong>
+										Программное обеспечение и франчайзинг продуктов 1С:
+									</strong>
+									<br />
+									- автоматизация предприятий и организаций на базе программного
+									комплекса 1С – поставка, внедрение и сопровождение;
+									<br />
+									- отчетность через интернет и электронно-цифровая подпись;
+									<br />- поставка программного обеспечения и средств защиты
+									данных;
+								</li>
+								<li>
+									<strong>
+										Решения для предприятий любого масштаба и всех отраслей
+									</strong>
+								</li>
+								<li>
+									<strong>Консультирование и подбор оптимальной системы</strong>
+								</li>
+								<li>
+									<strong>Техническая поддержка</strong>
+								</li>
+								<li>
+									<strong>Идеальное решение для бухгалтерии</strong>
+								</li>
+								<li>
+									<strong>Безопасность базы</strong>
+								</li>
+							</ul>
+						</div>
+						<div className={styles.aboutImageContainer}>
+							<Image
+								src='/ajti-servis-menedzhment.png'
+								alt='Логотип компании АйТиСМ'
+								width={500}
+								height={350}
+								className={styles.aboutImg}
+							/>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			{/* Секция Отзывы */}
+			<section className={styles.section}>
+				<div className={styles.container}>
+					<h2 className={styles.sectionTitle}>Отзывы</h2>
+					<div className={styles.reviewsGrid}>
+						<div className={styles.reviewCard}>
+							<p className={styles.reviewText}>
+								"Квалифицированные консультации, оперативное решение
+								поставленных задач"
+							</p>
+							<p className={styles.reviewAuthor}>- ООО "ЛПЗ"СЕГАЛ"</p>
+						</div>
+						<div className={styles.reviewCard}>
+							<p className={styles.reviewText}>
+								"Выражаем огромную благодарность нашим незаменимым партнерам в
+								лице сотрудников «АйТиСМ». Решение проблем — это Ваш конёк.
+								Спасибо за облегчение труда, экономию времени, за индивидуальный
+								подход и доброжелательность при личных встречах"
+							</p>
+							<p className={styles.reviewAuthor}>- Марина</p>
+						</div>
+						<div className={styles.reviewCard}>
+							<p className={styles.reviewText}>
+								"Мне нравится индивидуальный подход к каждому специалисту нашей
+								компании, умение доходчиво и понятно объяснить и помочь"
+							</p>
+							<p className={styles.reviewAuthor}>- Александр Олегович</p>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	);
+}
