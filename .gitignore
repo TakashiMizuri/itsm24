@@ -39,3 +39,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Visual Studio
+.vs/
+*.vsix
+*.swp
+*.swo
+*.suo
+*.user
+*.userosscache
+*.sln.docstates

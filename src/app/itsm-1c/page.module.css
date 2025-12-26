@@ -98,62 +98,6 @@
 	flex-wrap: wrap;
 }
 
-.primaryButton {
-	background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-	color: white;
-	border: none;
-	padding: 1rem 2.5rem;
-	border-radius: 0.75rem;
-	font-size: 1.1rem;
-	font-weight: 600;
-	cursor: pointer;
-	transition: all 0.3s ease;
-	position: relative;
-	overflow: hidden;
-	box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
-}
-
-.primaryButton:hover {
-	transform: translateY(-3px);
-	box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
-}
-
-.primaryButton::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: -100%;
-	width: 100%;
-	height: 100%;
-	background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-	transition: 0.5s;
-}
-
-.primaryButton:hover::before {
-	left: 100%;
-}
-
-.secondaryButton {
-	background: transparent;
-	color: #2563eb;
-	border: 2px solid #2563eb;
-	padding: 1rem 2.5rem;
-	border-radius: 0.75rem;
-	font-size: 1.1rem;
-	font-weight: 600;
-	cursor: pointer;
-	transition: all 0.3s ease;
-	position: relative;
-	overflow: hidden;
-}
-
-.secondaryButton:hover {
-	background: #2563eb;
-	color: white;
-	transform: translateY(-3px);
-	box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
-}
-
 .heroImg {
 	width: 100%;
 	height: auto;
@@ -264,7 +208,7 @@
 }
 
 .submitButton {
-	background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+	background: #e14c04f0;
 	color: white;
 	border: none;
 	padding: 1.2rem;
@@ -278,7 +222,7 @@
 
 .submitButton:hover {
 	transform: translateY(-3px);
-	box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+	box-shadow: 0 8px 25px #e14e0446;
 }
 
 /* Общие стили секций */
@@ -318,7 +262,7 @@
 	left: 0;
 	width: 100px;
 	height: 4px;
-	background: linear-gradient(90deg, #2563eb, #10b981);
+	background: #e14c04f0;
 	border-radius: 2px;
 }
 
@@ -342,7 +286,7 @@
 .productCard:hover {
 	transform: translateY(-10px) scale(1.02);
 	box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-	border-color: #2563eb;
+	/* border-color: #2563eb; */
 }
 
 .productImage {
@@ -415,6 +359,9 @@
 }
 
 .certificatesList li {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
 	padding: 0.75rem 0;
 	color: #4b5563;
 	position: relative;
@@ -423,11 +370,8 @@
 	font-weight: 500;
 }
 
-.certificatesList li:before {
-	content: '🏆';
-	position: absolute;
-	left: 0;
-	font-size: 1.2rem;
+.certificetesListItemIcon {
+    stroke: #e14c04f0;
 }
 
 .qualificationImg {
@@ -464,14 +408,14 @@
 .clientCard:hover {
 	transform: translateY(-10px);
 	box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-	border-color: #2563eb;
+	/* border-color: #2563eb; */
 }
 
 .clientIcon {
 	font-size: 3rem;
 	margin-bottom: 1.5rem;
 	display: inline-block;
-	background: linear-gradient(135deg, #2563eb, #10b981);
+	background: #e14c04f0;
 	background-clip: text;
 	-webkit-background-clip: text;
 }
@@ -506,7 +450,7 @@
 	border-radius: 1rem;
 	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 	transition: all 0.3s ease;
-	border-left: 4px solid #2563eb;
+	border-left: 4px solid #e14c04f0;
 }
 
 .serviceItem:hover {
@@ -515,16 +459,9 @@
 }
 
 .serviceIcon {
-	color: #2563eb;
-	font-size: 2rem;
-	flex-shrink: 0;
-	background: rgba(37, 99, 235, 0.1);
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+    fill: #e14c04f0;
+    min-width: 24px;
+    min-height: 24px;
 }
 
 .serviceItem p {
@@ -573,7 +510,7 @@
 	transform: translateX(-50%);
 	width: 100px;
 	height: 4px;
-	background: linear-gradient(90deg, #2563eb, #10b981);
+	background: #e14c04f0;
 	border-radius: 2px;
 }
 
@@ -600,7 +537,7 @@
 .promoCard:hover {
 	background: rgba(255, 255, 255, 0.15);
 	transform: translateY(-5px);
-	border-color: #2563eb;
+	/* border-color: #2563eb; */
 }
 
 .promoCardTitle {
@@ -641,7 +578,7 @@
 }
 
 .formButton {
-	background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+	background: #e14c04f0;
 	color: white;
 	border: none;
 	padding: 1.2rem 3rem;
@@ -658,7 +595,7 @@
 
 .formButton:hover {
 	transform: translateY(-3px);
-	box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+	box-shadow: 0 8px 25px #e14e0446;
 }
 
 /* Секция О нас */
@@ -749,7 +686,7 @@
 .reviewCard:hover {
 	transform: translateY(-10px);
 	box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-	border-color: #2563eb;
+	/* border-color: #2563eb; */
 }
 
 .reviewCard::before {

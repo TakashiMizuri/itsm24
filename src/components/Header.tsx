@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import styles from './Header.module.css';
 import Image from 'next/image';
@@ -33,6 +33,17 @@ export default function Header() {
 		{ title: 'Специальная оценка условий труда', href: '/about/reviews' },
 	];
 
+	// Функция закрытия всех меню (должна быть объявлена перед использованием)
+	const closeAllDropdowns = useCallback(() => {
+		setActiveDropdown(null);
+		setIsMobileMenuOpen(false);
+	}, []);
+
+	const handleDropdownItemClick = useCallback(() => {
+		// При клике на элемент выпадающего меню закрываем все
+		closeAllDropdowns();
+	}, [closeAllDropdowns]);
+
 	// Закрытие меню при клике вне области
 	useEffect(() => {
 		const handleClickOutside = (event: MouseEvent) => {
@@ -45,7 +56,7 @@ export default function Header() {
 		return () => {
 			document.removeEventListener('mousedown', handleClickOutside);
 		};
-	}, []);
+	}, [closeAllDropdowns]);
 
 	// Управление наведением для десктопной версии
 	const handleDropdownEnter = (dropdownName: string) => {
@@ -66,26 +77,6 @@ export default function Header() {
 		setActiveDropdown(null);
 	};
 
-	const handleDropdownToggleClick = (
-		dropdownName: string,
-		e: React.MouseEvent
-	) => {
-		// Для мобильной версии и для клика на стрелку
-		e.stopPropagation();
-		e.preventDefault();
-		setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName);
-	};
-
-	const handleDropdownItemClick = () => {
-		// При клике на элемент выпадающего меню закрываем все
-		closeAllDropdowns();
-	};
-
-	const closeAllDropdowns = () => {
-		setActiveDropdown(null);
-		setIsMobileMenuOpen(false);
-	};
-
 	const toggleMobileMenu = () => {
 		setIsMobileMenuOpen(!isMobileMenuOpen);
 	};
@@ -96,7 +87,6 @@ export default function Header() {
 			// На мобилке клик на ссылку с выпадающим меню - открываем меню, а не переходим
 			if (hasDropdown) {
 				e.preventDefault();
-				// Уже обрабатывается в handleDropdownToggleClick
 			}
 		}
 		// На десктопе - обычный переход по ссылке
@@ -150,24 +140,16 @@ export default function Header() {
 							onMouseEnter={() => handleDropdownEnter('services')}
 							onMouseLeave={handleDropdownLeave}
 						>
-							<div className={styles.menuLinkWithDropdown}>
+							<div className={styles.dropdownTrigger}>
 								<Link
-									href='/services' // Добавьте основную страницу для услуг
-									className={`${styles.menuLink} ${styles.dropdownLink} ${
+									href='/services'
+									className={`${styles.menuLink} ${
 										activeDropdown === 'services' ? styles.active : ''
 									}`}
 									onClick={(e) => handleMenuLinkClick(e, true)}
 									onMouseEnter={() => handleDropdownEnter('services')}
 								>
 									Услуги
-								</Link>
-								<button
-									className={styles.dropdownToggleButton}
-									onClick={(e) => handleDropdownToggleClick('services', e)}
-									onMouseEnter={() => handleDropdownEnter('services')}
-									aria-expanded={activeDropdown === 'services'}
-									aria-label='Показать подменю услуг'
-								>
 									<Icon
 										name={
 											activeDropdown === 'services' ? 'caret-up' : 'caret-down'
@@ -175,7 +157,7 @@ export default function Header() {
 										size={16}
 										className={styles.dropdownIcon}
 									/>
-								</button>
+								</Link>
 							</div>
 
 							<div
@@ -217,32 +199,22 @@ export default function Header() {
 							onMouseEnter={() => handleDropdownEnter('about')}
 							onMouseLeave={handleDropdownLeave}
 						>
-							<div className={styles.menuLinkWithDropdown}>
+							<div className={styles.dropdownTrigger}>
 								<Link
-									href='/about' // Добавьте основную страницу для "О нас"
-									className={`${styles.menuLink} ${styles.dropdownLink} ${
+									href='/about'
+									className={`${styles.menuLink} ${
 										activeDropdown === 'about' ? styles.active : ''
 									}`}
 									onClick={(e) => handleMenuLinkClick(e, true)}
 									onMouseEnter={() => handleDropdownEnter('about')}
 								>
 									О нас
-								</Link>
-								<button
-									className={styles.dropdownToggleButton}
-									onClick={(e) => handleDropdownToggleClick('about', e)}
-									onMouseEnter={() => handleDropdownEnter('about')}
-									aria-expanded={activeDropdown === 'about'}
-									aria-label='Показать подменю "О нас"'
-								>
 									<Icon
-										name={
-											activeDropdown === 'about' ? 'caret-up' : 'caret-down'
-										}
+										name={activeDropdown === 'about' ? 'caret-up' : 'caret-down'}
 										size={16}
 										className={styles.dropdownIcon}
 									/>
-								</button>
+								</Link>
 							</div>
 
 							<div
