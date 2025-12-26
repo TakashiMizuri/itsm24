@@ -28,9 +28,9 @@ export default function Header() {
 
     const aboutMenu = [
         { title: 'Отзывы о нас', href: '/about/company' },
-        { title: 'Наши клиенты', href: '/about/team' },
-        { title: 'Партнеры', href: '/about/licenses' },
-        { title: 'Специальная оценка условий труда', href: '/about/reviews' },
+        { title: 'Наши клиенты', href: '/clients' },
+        { title: 'Партнеры', href: '/partners' },
+        { title: 'Специальная оценка условий труда', href: '/assessment-of-working-conditions' },
     ];
 
     // Функция закрытия всех меню (должна быть объявлена перед использованием)
@@ -278,7 +278,7 @@ export default function Header() {
                             />
                             <div className={styles.contactContent}>
                                 <p className={styles.contactText}>
-                                    г. Красноярск,
+                                    660111, г. Красноярск,
                                     <br />
                                     ул. Пограничников, 101, офис 202
                                 </p>
@@ -291,8 +291,8 @@ export default function Header() {
                             />
                             <div className={styles.contactContent}>
                                 <p className={styles.contactText}>
-                                    Ежедневно
-                                    <br />с 09:00 до 18:00
+                                    Приём звонков ежедневно
+                                    <br />с 09:00 до 18:00 (пн-пт)
                                 </p>
                             </div>
                         </div>

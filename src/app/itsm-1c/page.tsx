@@ -263,7 +263,7 @@ export default function Itsm1C() {
             </section>
 
             {/* Секция О нас */}
-            <section className={styles.sectionDark}>
+            <section className={styles.section}>
                 <div className={styles.container}>
                     <h2 className={styles.sectionTitle}>О нас</h2>
                     <div className={styles.aboutGrid}>
@@ -319,7 +319,7 @@ export default function Itsm1C() {
             </section>
 
             {/* Секция Отзывы */}
-            <section className={styles.section}>
+            <section className={styles.sectionDark}>
                 <div className={styles.container}>
                     <h2 className={styles.sectionTitle}>Отзывы</h2>
                     <div className={styles.reviewsGrid}>
