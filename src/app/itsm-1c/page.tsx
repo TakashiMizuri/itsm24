@@ -1,12 +1,21 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import styles from './page.module.css';
 import Icon from '@/components/Icon';
 
 export default function Itsm1C() {
     const [formOpen, setFormOpen] = useState(false);
+    const [isLoading, setIsLoading] = useState(true); // Добавляем состояние загрузки
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 0);
+
+        return () => clearTimeout(timer);
+    }, []);
 
     const toggleForm = () => {
         setFormOpen(!formOpen);
@@ -14,11 +23,13 @@ export default function Itsm1C() {
 
     return (
         <div className={styles.page}>
-            {/* Герой секция */}
-            <section className={styles.hero}>
+            {/* Герой секция с анимацией */}
+            <section className={`${styles.hero} ${isLoading ? styles.loading : ''}`}>
                 <div className={styles.heroContent}>
-                    <h1 className={styles.heroTitle}>1C продукты в Красноярске</h1>
-                    <p className={styles.heroDescription}>
+                    <h1 className={`${styles.heroTitle} ${isLoading ? styles.loading : ''}`}>
+                        1C продукты в Красноярске
+                    </h1>
+                    <p className={`${styles.heroDescription} ${isLoading ? styles.loading : ''}`}>
                         Комплексные услуги по внедрению, сопровождению, консультации 1С.
                         Более 5 лет на рынке
                     </p>
@@ -28,7 +39,7 @@ export default function Itsm1C() {
                     alt='IT решения для бизнеса'
                     width={500}
                     height={500}
-                    className={styles.heroImg}
+                    className={`${styles.heroImg} ${isLoading ? styles.loading : ''}`}
                     priority
                 />
             </section>
