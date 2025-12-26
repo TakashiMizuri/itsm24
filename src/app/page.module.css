@@ -1,3 +1,60 @@
+.page {
+	min-height: 100vh;
+	background-color: #fff;
+}
+
+/* Секция контактов */
+.contactsSection {
+	background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+	color: white;
+	padding: 1rem 0;
+	position: relative;
+	overflow: hidden;
+}
+
+.contactsSection .container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2rem;
+}
+
+.contactsGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 2rem;
+	position: relative;
+	z-index: 1;
+}
+
+.contactCard {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	padding: 0.5rem 1rem;
+	background: rgba(255, 255, 255, 0.05);
+	border-radius: 1rem;
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	transition: all 0.3s ease;
+}
+
+.contactIcon {
+	color: #60a5fa;
+}
+
+.contactContent {
+	flex: 1;
+}
+
+.contactText {
+	font-size: 1rem;
+	line-height: 1.4;
+	margin: 0;
+	color: #e2e8f0;
+	font-weight: 500;
+}
+
+/* Контейнер для двух основных секций */
 .container {
 	display: flex;
 	height: 60vh;
@@ -34,16 +91,29 @@
 
 /* Контент секции */
 .sectionContent {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
 	position: relative;
 	z-index: 2;
 	text-align: center;
 	padding: 2rem;
 	max-width: 600px;
+	min-height: 400px;
 	transition: transform 0.3s ease;
 }
 
 .section:hover .sectionContent {
 	transform: scale(1.02);
+}
+
+.sectionHeaderContainer {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	align-items: center;
+	justify-content: center;
 }
 
 .sectionTitle {
@@ -86,15 +156,15 @@
 .bgImage {
 	object-fit: cover;
 	transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-	opacity: 0; /* Начальная прозрачность */
+	opacity: 0;
 	animation: imageFadeInGradual 0.5s ease-out forwards;
-	animation-delay: 0.3s; /* Задержка перед появлением */
+	animation-delay: 0.15s; /* Уменьшено с 0.3s */
 }
 
 @keyframes imageFadeInGradual {
 	0% {
 		opacity: 0;
-		filter: brightness(0.8) contrast(1.2); /* Начальные фильтры */
+		filter: brightness(0.8) contrast(1.2);
 	}
 	50% {
 		opacity: 0.5;
@@ -120,7 +190,7 @@
 	transition: background 0.3s ease;
 	opacity: 0;
 	animation: overlayFadeIn 0.8s ease-out forwards;
-	animation-delay: 0.2s; /* Задержка для оверлея */
+	animation-delay: 0.1s; /* Уменьшено с 0.2s */
 }
 
 @keyframes overlayFadeIn {
@@ -140,40 +210,194 @@
 	);
 }
 
-/* Конкретные стили для каждой секции */
-.securitySection .overlay {
-	background: linear-gradient(
-		45deg,
-		rgba(37, 99, 235, 0.3) 0%,
-		rgba(0, 0, 0, 0.4) 100%
-	);
+/* Секция о компании */
+.companyInfo {
+	padding: 4rem 2rem;
+	background: #f8fafc;
 }
 
-.securitySection:hover .overlay {
-	background: linear-gradient(
-		45deg,
-		rgba(37, 99, 235, 0.25) 0%,
-		rgba(0, 0, 0, 0.3) 100%
-	);
+.companyContainer {
+	max-width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 4rem;
 }
 
-.oneCSection .overlay {
-	background: linear-gradient(
-		45deg,
-		rgba(16, 185, 129, 0.3) 0%,
-		rgba(0, 0, 0, 0.4) 100%
-	);
+.companyContent {
+	flex: 1;
+	max-width: 600px;
 }
 
-.oneCSection:hover .overlay {
+.companyTitle {
+	font-size: 2.5rem;
+	font-weight: 800;
+	color: #1f2937;
+	margin-bottom: 1.5rem;
+}
+
+.companyDescription {
+	font-size: 1.25rem;
+	color: #6b7280;
+	line-height: 1.6;
+	margin-bottom: 2rem;
+	font-weight: 500;
+}
+
+.companyStats {
+	display: flex;
+	gap: 3rem;
+	margin-bottom: 2rem;
+}
+
+.statItem {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.statNumber {
+	font-size: 2.5rem;
+	font-weight: 800;
+	color: #e14c04f0;
+	line-height: 1;
+	margin-bottom: 0.5rem;
+}
+
+.statLabel {
+	font-size: 1rem;
+	color: #6b7280;
+	font-weight: 500;
+}
+
+.companyLink {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	color: #e14c04f0;
+	font-weight: 600;
+	font-size: 1.125rem;
+	text-decoration: none;
+	transition: all 0.3s ease;
+}
+
+.companyLink:hover {
+	gap: 1rem;
+	color: #c13b03;
+}
+
+.companyLogo {
+	flex-shrink: 0;
+}
+
+.companyLogoImage {
+	opacity: 0;
+	animation: logoFadeIn 0.8s ease forwards;
+	animation-delay: 0.55s; /* Уменьшено с 1.1s */
+	transform: translateY(20px);
+	transition: transform 0.3s ease;
+}
+
+.companyLogoImage:hover {
+	transform: translateY(-5px) scale(1.05);
+}
+
+@keyframes logoFadeIn {
+	0% {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Анимация появления при загрузке для текста */
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.sectionContent {
+	animation: fadeInUp 0.6s ease forwards;
+	opacity: 0;
+	animation-delay: 0.25s; /* Уменьшено с 0.5s */
+}
+
+.oneCSection .sectionContent {
+	animation-delay: 0.35s; /* Уменьшено с 0.7s */
+}
+
+.companyContent {
+	animation: fadeInUp 0.6s ease forwards;
+	animation-delay: 0.45s; /* Уменьшено с 0.9s */
+	opacity: 0;
+}
+
+/* Для предотвращения FOUC (Flash of Unstyled Content) */
+.container.loading .bgImage,
+.container.loading .overlay {
+	animation: none;
+	opacity: 0;
+}
+
+.container.loading .sectionContent {
+	animation: none;
+	opacity: 0;
+}
+
+.companyInfo.loading .companyContent {
+	animation: none;
+	opacity: 0;
+}
+
+.companyInfo.loading .companyLogoImage {
+	animation: none;
+	opacity: 0;
+}
+
+/* Добавляем эффект загрузки для изображений */
+.bgImage.loading {
 	background: linear-gradient(
-		45deg,
-		rgba(16, 185, 129, 0.25) 0%,
-		rgba(0, 0, 0, 0.3) 100%
+		90deg,
+		rgba(255, 255, 255, 0.1) 25%,
+		rgba(255, 255, 255, 0.2) 50%,
+		rgba(255, 255, 255, 0.1) 75%
 	);
+	background-size: 200% 100%;
+	animation: loadingShimmer 1.5s infinite;
+}
+
+@keyframes loadingShimmer {
+	0% {
+		background-position: -200% 0;
+	}
+	100% {
+		background-position: 200% 0;
+	}
 }
 
 /* Адаптивность для мобильных устройств */
+@media (max-width: 1024px) {
+	.companyContainer {
+		flex-direction: column;
+		text-align: center;
+		gap: 2rem;
+	}
+
+	.companyStats {
+		justify-content: center;
+	}
+}
+
 @media (max-width: 768px) {
 	.container {
 		flex-direction: column;
@@ -198,67 +422,85 @@
 		font-size: 1.125rem;
 	}
 
-	/* Уменьшаем задержку анимаций на мобильных для лучшего UX */
+	.companyTitle {
+		font-size: 2rem;
+	}
+
+	.companyDescription {
+		font-size: 1.1rem;
+	}
+
+	.companyStats {
+		gap: 2rem;
+	}
+
+	.statNumber {
+		font-size: 2rem;
+	}
+
+	.contactsGrid {
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
+
+	.contactCard {
+		justify-content: center;
+		text-align: center;
+	}
+
+	/* Уменьшаем задержку анимаций на мобильных */
 	.bgImage {
-		animation-delay: 0.1s;
+		animation-delay: 0.05s; /* Уменьшено с 0.1s */
 	}
 
 	.overlay {
-		animation-delay: 0.1s;
+		animation-delay: 0.05s; /* Уменьшено с 0.1s */
+	}
+
+	.sectionContent {
+		animation-delay: 0.15s; /* Уменьшено с 0.3s */
+	}
+
+	.oneCSection .sectionContent {
+		animation-delay: 0.2s; /* Уменьшено с 0.4s */
+	}
+
+	.companyContent {
+		animation-delay: 0.25s; /* Уменьшено с 0.5s */
+	}
+	
+	.companyLogoImage {
+		animation-delay: 0.3s; /* Уменьшено для мобильных */
 	}
 }
 
-/* Анимация появления при загрузке для текста */
-@keyframes fadeInUp {
-	from {
-		opacity: 0;
-		transform: translateY(20px);
+@media (max-width: 480px) {
+	.sectionTitle {
+		font-size: 2rem;
 	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
+
+	.sectionDescription {
+		font-size: 1rem;
 	}
-}
 
-.sectionContent {
-	animation: fadeInUp 0.6s ease forwards;
-	opacity: 0;
-	animation-delay: 0.5s; /* Увеличиваем задержку чтобы изображение появлялось раньше */
-}
-
-.oneCSection .sectionContent {
-	animation-delay: 0.7s;
-}
-
-/* Для предотвращения FOUC (Flash of Unstyled Content) */
-.container.loading .bgImage,
-.container.loading .overlay {
-	animation: none;
-	opacity: 0;
-}
-
-.container.loading .sectionContent {
-	animation: none;
-	opacity: 0;
-}
-
-/* Добавляем эффект загрузки для изображений */
-.bgImage.loading {
-	background: linear-gradient(
-		90deg,
-		rgba(255, 255, 255, 0.1) 25%,
-		rgba(255, 255, 255, 0.2) 50%,
-		rgba(255, 255, 255, 0.1) 75%
-	);
-	background-size: 200% 100%;
-	animation: loadingShimmer 1.5s infinite;
-}
-
-@keyframes loadingShimmer {
-	0% {
-		background-position: -200% 0;
+	.companyTitle {
+		font-size: 1.8rem;
 	}
-	100% {
-		background-position: 200% 0;
+
+	.companyDescription {
+		font-size: 1rem;
+	}
+
+	.companyStats {
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.contactsSection .container {
+		padding: 0 1rem;
+	}
+
+	.companyInfo {
+		padding: 3rem 1rem;
 	}
 }

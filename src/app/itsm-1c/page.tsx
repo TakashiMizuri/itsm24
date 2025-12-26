@@ -14,53 +14,6 @@ export default function Itsm1C() {
 
     return (
         <div className={styles.page}>
-            {/* Секция контактов */}
-            <section className={styles.contactsSection}>
-                <div className={styles.container}>
-                    <div className={styles.contactsGrid}>
-                        <div className={styles.contactCard}>
-                            <Icon
-                                className={styles.iconGroupIcon}
-                                size={26}
-                                name='map-pin'
-                            />
-                            <div className={styles.contactContent}>
-                                <p className={styles.contactText}>
-                                    г. Красноярск,
-                                    <br />
-                                    ул. Пограничников, 101
-                                </p>
-                            </div>
-                        </div>
-                        <div className={styles.contactCard}>
-                            <Icon
-                                size={26}
-                                name='clock'
-                            />
-                            <div className={styles.contactContent}>
-                                <p className={styles.contactText}>
-                                    Ежедневно
-                                    <br />с 09:00 до 18:00
-                                </p>
-                            </div>
-                        </div>
-                        <div className={styles.contactCard}>
-                            <Icon
-                                size={26}
-                                name='phone'
-                            />
-                            <div className={styles.contactContent}>
-                                <p className={styles.contactText}>
-                                    +7 (391) 274-90-64
-                                    <br />
-                                    +7 (391) 274-90-74
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             {/* Герой секция */}
             <section className={styles.hero}>
                 <div className={styles.heroContent}>

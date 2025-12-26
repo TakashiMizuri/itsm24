@@ -12,6 +12,65 @@
     padding: 0 2rem;
 }
 
+/* Секция контактов */
+.contactsSection {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    color: white;
+    padding: 1rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.contactsContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.contactsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.contactCard {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* .contactCard:hover {
+	background: rgba(255, 255, 255, 0.1);
+	transform: translateY(-2px);
+	border-color: #2563eb;
+} */
+
+/* .contactCard svg {
+	color: #60a5fa;
+	filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.3));
+} */
+
+.contactContent {
+    flex: 1;
+}
+
+.contactText {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin: 0;
+    color: #e2e8f0;
+    font-weight: 500;
+}
+
 .nav {
     display: flex;
     justify-content: space-between;
