@@ -11,7 +11,11 @@ export type IconName =
 	| 'x'
 	| 'loader'
 	| 'check'
-	| 'alert-circle';
+	| 'alert-circle'
+	| 'users'
+	| 'message'
+	| 'building';
+
 interface IconProps {
 	name: IconName;
 	className?: string;
@@ -255,6 +259,81 @@ const iconComponents: Record<
 			<path d='M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0' />
 			<path d='M12 8v4' />
 			<path d='M12 16h.01' />
+		</svg>
+	),
+	users: (props) => (
+		<svg
+			xmlns='http://www.w3.org/2000/svg'
+			width='24'
+			height='24'
+			viewBox='0 0 24 24'
+			fill='none'
+			stroke='#ffffff'
+			strokeWidth='2'
+			strokeLinecap='round'
+			strokeLinejoin='round'
+			{...props}
+		>
+			<path
+				stroke='none'
+				d='M0 0h24v24H0z'
+				fill='none'
+			/>
+			<path d='M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0' />
+			<path d='M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2' />
+			<path d='M16 3.13a4 4 0 0 1 0 7.75' />
+			<path d='M21 21v-2a4 4 0 0 0 -3 -3.85' />
+		</svg>
+	),
+	message: (props) => (
+		<svg
+			xmlns='http://www.w3.org/2000/svg'
+			width='24'
+			height='24'
+			viewBox='0 0 24 24'
+			fill='none'
+			stroke='#ffffff'
+			strokeWidth='2'
+			strokeLinecap='round'
+			strokeLinejoin='round'
+			{...props}
+		>
+			<path
+				stroke='none'
+				d='M0 0h24v24H0z'
+				fill='none'
+			/>
+			<path d='M8 9h8' />
+			<path d='M8 13h6' />
+			<path d='M18 4a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-5l-5 3v-3h-2a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3h12z' />
+		</svg>
+	),
+	building: (props) => (
+		<svg
+			xmlns='http://www.w3.org/2000/svg'
+			width='24'
+			height='24'
+			viewBox='0 0 24 24'
+			fill='none'
+			stroke='#ffffff'
+			strokeWidth='2'
+			strokeLinecap='round'
+			strokeLinejoin='round'
+			{...props}
+		>
+			<path
+				stroke='none'
+				d='M0 0h24v24H0z'
+				fill='none'
+			/>
+			<path d='M3 21l18 0' />
+			<path d='M9 8l1 0' />
+			<path d='M9 12l1 0' />
+			<path d='M9 16l1 0' />
+			<path d='M14 8l1 0' />
+			<path d='M14 12l1 0' />
+			<path d='M14 16l1 0' />
+			<path d='M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16' />
 		</svg>
 	),
 };

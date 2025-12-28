@@ -346,7 +346,7 @@ export default function Header() {
 						</div>
 
 						<Link
-							href='/contact'
+							href='/contacts'
 							className={styles.menuLink}
 							onClick={closeAllDropdowns}
 							onMouseEnter={handleSimpleLinkEnter}

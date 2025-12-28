@@ -1,0 +1,572 @@
+.page {
+	min-height: 100vh;
+	background-color: #fff;
+}
+
+/* Упрощенная герой-секция */
+.heroSection {
+	background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+	overflow-x: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 4rem 2rem;
+}
+
+.container {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	position: relative;
+	z-index: 1;
+}
+
+.heroTitle {
+	font-size: 3rem;
+	font-weight: 800;
+	color: #1f2937;
+	margin-bottom: 1rem;
+	animation: fadeInUp 0.6s ease forwards;
+	opacity: 0;
+	animation-delay: 0.1s;
+}
+
+.heroTitle.loading {
+	animation: none;
+	opacity: 0;
+}
+
+.heroSubtitle {
+	font-size: 1.25rem;
+	color: #6b7280;
+	line-height: 1.6;
+	margin: 0;
+	font-weight: 500;
+	animation: fadeInUp 0.6s ease forwards;
+	opacity: 0;
+	animation-delay: 0.2s;
+}
+
+.heroSubtitle.loading {
+	animation: none;
+	opacity: 0;
+}
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Остальные стили остаются без изменений */
+.section {
+	padding: 6rem 2rem;
+	background-color: white;
+	position: relative;
+}
+
+.sectionDark {
+	padding: 6rem 2rem;
+	background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+	position: relative;
+}
+
+.sectionTitle {
+	font-size: 2.5rem;
+	font-weight: 800;
+	text-align: center;
+	color: #1f2937;
+	margin-bottom: 3rem;
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	opacity: 0;
+	transform: translateY(20px);
+	animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+	animation-delay: 0.1s;
+}
+
+.sectionTitle.loading {
+	animation: none;
+	opacity: 0;
+}
+
+.sectionTitle::after {
+	content: '';
+	position: absolute;
+	bottom: -10px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100px;
+	height: 4px;
+	background: #e14c04f0;
+	border-radius: 2px;
+}
+
+/* Сетка контактов */
+.contactsGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+	gap: 3rem;
+	opacity: 0;
+	transform: translateY(30px);
+	animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+	animation-delay: 0.2s;
+}
+
+.contactsGrid.loading {
+	animation: none;
+	opacity: 0;
+}
+
+/* Карточка контакта */
+.contactCard {
+	background: white;
+	border-radius: 1.5rem;
+	padding: 2.5rem;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease;
+	border: 1px solid #e5e7eb;
+}
+
+.contactCard:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.contactCardHeader {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	margin-bottom: 2rem;
+	padding-bottom: 1.5rem;
+	border-bottom: 2px solid #e14c04f0;
+}
+
+.contactCardIcon {
+	color: #e14c04f0;
+}
+
+.contactCardTitle {
+	font-size: 1.75rem;
+	font-weight: 700;
+	color: #1f2937;
+	margin: 0;
+}
+
+/* Информация о контактах */
+.contactInfoList {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.contactInfoItem {
+	display: flex;
+	align-items: flex-start;
+	gap: 1rem;
+	padding: 1rem;
+	border-radius: 0.75rem;
+	background: #f8fafc;
+	transition: all 0.2s ease;
+}
+
+.contactInfoItem:hover {
+	background: #f1f5f9;
+}
+
+.contactInfoIcon {
+	stroke: #e14c04f0;
+	flex-shrink: 0;
+	margin-top: 0.25rem;
+}
+
+.contactInfoContent {
+	flex: 1;
+}
+
+.contactInfoLabel {
+	font-size: 0.875rem;
+	font-weight: 600;
+	color: #6b7280;
+	margin-bottom: 0.25rem;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.contactInfoValue {
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: #1f2937;
+	text-decoration: none;
+	transition: color 0.2s ease;
+	display: block;
+	line-height: 1.4;
+}
+
+.contactInfoValue:hover {
+	color: #e14c04f0;
+}
+
+.contactInfoSubtext {
+	font-size: 0.95rem;
+	color: #6b7280;
+	margin-top: 0.25rem;
+	font-weight: 500;
+}
+
+/* Карта */
+.mapContainer {
+	margin-top: 1.5rem;
+	width: 100%;
+	position: relative;
+	border-radius: 0.75rem;
+	overflow: hidden;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+	height: 300px;
+}
+
+.mapIframe {
+	width: 100%;
+	height: 100%;
+	border: none;
+	display: block;
+}
+
+/* Секция социальных сетей */
+.socialSection {
+	text-align: center;
+	opacity: 0;
+	transform: translateY(30px);
+	animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+	animation-delay: 0.2s;
+}
+
+.socialSection.loading {
+	animation: none;
+	opacity: 0;
+}
+
+.socialDescription {
+	font-size: 1.1rem;
+	color: #6b7280;
+	margin-bottom: 2rem;
+	line-height: 1.6;
+	font-weight: 500;
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.socialGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	gap: 1.5rem;
+	margin-top: 2rem;
+}
+
+.socialLink {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.75rem;
+	padding: 1.5rem;
+	background: white;
+	border-radius: 1rem;
+	text-decoration: none;
+	transition: all 0.3s ease;
+	border: 1px solid #e5e7eb;
+}
+
+.socialLink:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+	border-color: #e14c04f0;
+}
+
+.socialIconWrapper {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	background: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 2px solid #e5e7eb;
+	transition: all 0.3s ease;
+}
+
+.socialLink:hover .socialIconWrapper {
+	background: #f8fafc;
+	border-color: #e14c04f0;
+	transform: scale(1.1);
+}
+
+.socialIcon {
+	width: 28px;
+	height: 28px;
+	object-fit: contain;
+}
+
+.socialName {
+	font-size: 1rem;
+	font-weight: 600;
+	color: #1f2937;
+	transition: color 0.3s ease;
+}
+
+.socialLink:hover .socialName {
+	color: #e14c04f0;
+}
+
+/* Секция вопросов */
+.questionsSection {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	gap: 4rem;
+	align-items: center;
+	opacity: 0;
+	transform: translateY(30px);
+	animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+	animation-delay: 0.2s;
+}
+
+.questionsSection.loading {
+	animation: none;
+	opacity: 0;
+}
+
+.questionsContent {
+	padding-right: 2rem;
+}
+
+.questionsTitle {
+	font-size: 2rem;
+	font-weight: 700;
+	color: #1f2937;
+	margin-bottom: 2rem;
+	line-height: 1.3;
+}
+
+.questionsContacts {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.questionsPhone,
+.questionsMessengers {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	padding: 1.5rem;
+	background: #f8fafc;
+	border-radius: 1rem;
+	border-left: 4px solid #e14c04f0;
+}
+
+.questionsPhoneIcon,
+.questionsMessengersIcon {
+	stroke: #e14c04f0;
+}
+
+.questionsPhoneNumber {
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: #1f2937;
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+.questionsPhoneNumber:hover {
+	color: #e14c04f0;
+}
+
+.questionsMessengersInfo {
+	flex: 1;
+}
+
+.questionsMessengersNumber {
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: #1f2937;
+	text-decoration: none;
+	transition: color 0.2s ease;
+	display: block;
+	margin-bottom: 0.25rem;
+}
+
+.questionsMessengersNumber:hover {
+	color: #e14c04f0;
+}
+
+.questionsMessengersText {
+	font-size: 1rem;
+	color: #6b7280;
+	font-weight: 600;
+	letter-spacing: 1px;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+	.heroSection {
+		padding: 3rem 2rem;
+	}
+
+	.heroTitle {
+		font-size: 2.5rem;
+	}
+
+	.contactsGrid {
+		grid-template-columns: 1fr;
+	}
+
+	.questionsSection {
+		grid-template-columns: 1fr;
+		gap: 3rem;
+	}
+
+	.questionsContent {
+		padding-right: 0;
+	}
+
+	.callbackCard {
+		position: static;
+	}
+}
+
+@media (max-width: 768px) {
+	.heroSection {
+		padding: 3rem 1rem;
+	}
+
+	.heroTitle {
+		font-size: 2rem;
+	}
+
+	.heroSubtitle {
+		font-size: 1.1rem;
+	}
+
+	.section,
+	.sectionDark {
+		padding: 4rem 1rem;
+	}
+
+	.sectionTitle {
+		font-size: 2rem;
+	}
+
+	.contactCard {
+		padding: 2rem;
+	}
+
+	.contactCardTitle {
+		font-size: 1.5rem;
+	}
+
+	.contactInfoValue {
+		font-size: 1.1rem;
+	}
+
+	.socialGrid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.questionsTitle {
+		font-size: 1.75rem;
+	}
+
+	.questionsPhoneNumber,
+	.questionsMessengersNumber {
+		font-size: 1.25rem;
+	}
+}
+
+@media (max-width: 600px) {
+	.contactsGrid {
+		grid-template-columns: 1fr;
+	}
+
+	.socialGrid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1rem;
+	}
+
+	.socialLink {
+		padding: 1rem;
+	}
+
+	.socialIconWrapper {
+		width: 50px;
+		height: 50px;
+	}
+
+	.socialIcon {
+		width: 24px;
+		height: 24px;
+	}
+}
+
+@media (max-width: 480px) {
+	.heroTitle {
+		font-size: 1.8rem;
+	}
+
+	.heroSubtitle {
+		font-size: 1rem;
+	}
+
+	.sectionTitle {
+		font-size: 1.8rem;
+	}
+
+	.contactCardTitle {
+		font-size: 1.3rem;
+	}
+
+	.contactInfoItem {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.5rem;
+	}
+
+	.mapContainer {
+		height: 250px;
+	}
+
+	.socialGrid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.questionsPhone,
+	.questionsMessengers {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.75rem;
+	}
+
+	.questionsPhoneNumber,
+	.questionsMessengersNumber {
+		font-size: 1.1rem;
+	}
+}
+
+@media (max-width: 360px) {
+	.socialGrid {
+		grid-template-columns: 1fr;
+	}
+
+	.questionsTitle {
+		font-size: 1.5rem;
+	}
+
+	.callbackCard {
+		padding: 1.5rem;
+	}
+}
