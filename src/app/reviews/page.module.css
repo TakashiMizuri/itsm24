@@ -1,5 +1,5 @@
 .page {
-    min-height: 50vh;
+    min-height: 70vh;
     background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
     overflow-x: hidden;
     display: flex;
@@ -63,16 +63,16 @@
 
 /* Отдельный элемент карусели */
 .carouselItem {
+    width: 375px;
+    height: 530px;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
     background: white;
     border-radius: 1rem;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-    min-width: 250px;
-    min-height: 200px;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 /* Контейнер для изображения */
@@ -87,21 +87,23 @@
 /* Обертка для изображения */
 .imageWrapper {
     position: relative;
-    width: 170px;
-    height: 85px;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: white;
-    padding: 1rem;
+    background: transparent;
+    padding: 0;
 }
 
 .carouselImage {
-    object-fit: contain;
-    width: 100% !important;
-    height: 100% !important;
-    position: relative !important;
+    display: block;
+    width: auto !important;
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
 }
 
 /* Кнопки навигации */
@@ -185,8 +187,8 @@
     }
     
     .carouselItem {
-        min-width: 220px;
-        min-height: 180px;
+        width: 320px;
+        height: 460px;
     }
     
     .prevButton {
@@ -208,9 +210,8 @@
     }
     
     .carouselItem {
-        min-width: 200px;
-        min-height: 160px;
-        padding: 1.5rem;
+        width: 300px;
+        height: 430px;
     }
     
     .prevButton {
@@ -232,9 +233,8 @@
     }
     
     .carouselItem {
-        min-width: 180px;
-        min-height: 140px;
-        padding: 1rem;
+        width: 280px;
+        height: 400px;
     }
     
     .carouselTitle {
@@ -264,14 +264,13 @@
     }
     
     .carouselItem {
-        min-width: 150px;
-        min-height: 120px;
-        padding: 0.75rem;
+        width: 260px;
+        height: 360px;
     }
-    
+
     .imageWrapper {
-        width: 140px;
-        height: 70px;
+        width: 100%;
+        height: 100%;
     }
 }
 
@@ -294,6 +293,127 @@
     animation: loadingShimmer 1.5s infinite;
 }
 
+.imageWrapper {
+    padding: 0;
+}
+
+/* Image button (make image clickable without default button styles) */
+.imageButton {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+/* Remove default browser focus outline but keep visible accessible focus via box-shadow */
+.imageButton:focus {
+    outline: none;
+}
+
+.imageButton:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(225, 76, 4, 0.18);
+    border-radius: 8px;
+}
+
+/* Fullscreen modal */
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.modalContent {
+    position: relative;
+    width: 95vw;
+    max-width: 1400px;
+    height: 95vh;
+    max-height: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.modalImageWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modalClose,
+.modalNav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: white;
+    border: none;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 2020;
+    color: #1f2937;
+}
+
+.modalClose {
+    top: 12px;
+    right: 12px;
+    transform: none;
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+    border-radius: 8px;
+    padding: 0;
+}
+
+.modalNav {
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+}
+
+.modalNav:hover {
+    background: #e14c04f0;
+    color: white;
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 12px 30px rgba(225, 76, 4, 0.25);
+}
+
+.modalClose:hover {
+    background: #e14c04f0;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(225, 76, 4, 0.25);
+}
+
+.modalPrev {
+    left: 12px;
+}
+
+.modalNext {
+    right: 12px;
+}
+
 @keyframes loadingShimmer {
     0% {
         background-position: -200% 0;
@@ -301,15 +421,4 @@
     100% {
         background-position: 200% 0;
     }
-}
-
-/* Стили для Next.js Image */
-.carouselImage {
-    max-width: 170px !important;
-    max-height: 85px !important;
-}
-
-/* Убираем заливку по умолчанию */
-.carouselImage > img {
-    object-fit: contain !important;
 }

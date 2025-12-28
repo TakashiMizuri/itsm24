@@ -16,7 +16,7 @@
 .contactsSection {
     background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
     color: white;
-    padding: 1rem 0;
+    padding: 1.5rem 0;
     position: relative;
     overflow: hidden;
 }
@@ -40,11 +40,12 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1.25rem;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 1rem;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .contactCard svg {
@@ -247,14 +248,15 @@
 
 /* Кнопка связи - С АНИМАЦИЕЙ ИЗ ИСХОДНОГО КОДА */
 .contactButton {
-    background: #e14c04f0;
+    background: #e14c04;
     color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.375rem;
+    padding: 0.85rem 1.75rem;
+    border-radius: 0.5rem;
     text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: 700;
+    font-size: 1rem;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    box-shadow: 0 8px 24px rgba(225, 76, 4, 0.18);
     position: relative;
     overflow: hidden;
 }
@@ -266,8 +268,8 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s ease;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+    transition: left 0.45s ease;
 }
 
 .contactButton:hover::before {
@@ -275,8 +277,13 @@
 }
 
 .contactButton:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(225, 76, 4, 0.3);
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 14px 30px rgba(225, 76, 4, 0.22);
+}
+
+.contactButton:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 6px rgba(225, 76, 4, 0.12), 0 12px 28px rgba(0,0,0,0.08);
 }
 
 /* Мобильное меню кнопка */
@@ -312,20 +319,58 @@
         background: white;
         flex-direction: column;
         align-items: stretch;
-        padding: 5rem 2rem 2rem;
-        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+        padding: 5rem 0 2rem;
+        box-shadow: -8px 0 32px rgba(0, 0, 0, 0.15);
         transform: translateX(100%);
-        transition: transform 0.3s ease;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 1000;
         overflow-y: auto;
+        gap: 0.5rem;
     }
 
-    .menu.mobileMenuOpen {
-        transform: translateX(0);
+    /* Explicit class used from JS to open mobile menu */
+    .menuOpen {
+        transform: translateX(0) !important;
+    }
+
+    /* Overlay shown when mobile menu open */
+    .mobileOverlay {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.45);
+        z-index: 995;
+        backdrop-filter: blur(2px);
     }
 
     .menuLink {
         justify-content: space-between;
+        padding: 0.75rem 1.5rem;
+        color: #374151;
+        border-radius: 0.5rem;
+        transition: all 0.15s ease;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .menuLink:hover {
+        background-color: #f3f4f6;
+        color: #e14c04f0;
+    }
+
+    .menuLink:active {
+        background-color: #e5e7eb;
+    }
+
+    /* Button in dropdown - prevent pointer events so clicks pass to container */
+    .dropdownTrigger .menuLink {
+        pointer-events: none;
+        background: none;
+        border: none;
+    }
+
+    .dropdownTrigger .menuLink:active {
+        background-color: transparent;
     }
 
     .menuLink::after {
@@ -338,6 +383,23 @@
 
     .dropdownTrigger {
         position: relative;
+        width: 100%;
+        padding: 0.75rem 1.5rem;
+        background: transparent;
+        border-radius: 0.5rem;
+        transition: all 0.15s ease;
+        user-select: none;
+        margin: 0 0.5rem;
+        box-sizing: border-box;
+    }
+
+    .dropdownTrigger:hover {
+        background-color: #f3f4f6;
+        color: #e14c04f0;
+    }
+
+    .dropdownContainer.open .dropdownTrigger {
+        background-color: #e5e7eb;
     }
 
     .dropdownTrigger::after {
@@ -351,7 +413,8 @@
         transition: transform 0.2s ease;
     }
 
-    .dropdownTrigger.active::after {
+    /* When the dropdown container has .open (used for mobile toggle), rotate the arrow */
+    .dropdownContainer.open .dropdownTrigger::after {
         transform: translateY(-50%) rotate(180deg);
     }
 
@@ -375,10 +438,17 @@
         min-width: auto;
         left: 0;
         background: #f9fafb;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.25s ease, opacity 0.2s ease;
+        opacity: 0;
     }
 
     .dropdownMenu.active {
         transform: none;
+        max-height: 600px;
+        opacity: 1;
+        max-height: 500px;
     }
 
     .servicesDropdown {
@@ -387,33 +457,103 @@
     }
 
     .dropdownContent {
-        padding: 1rem;
+        padding: 0.5rem 0;
+    }
+
+    .dropdownItem {
+        display: block;
+        padding: 0.6rem 2rem;
+        text-decoration: none;
+        color: #374151;
+        border-radius: 0;
+        transition: all 0.15s ease;
+        font-size: 0.95rem;
+        line-height: 1.2;
+    }
+
+    .dropdownItem:hover {
+        background-color: #e5e7eb;
+        color: #e14c04f0;
+        padding-left: 2.25rem;
+    }
+
+    .dropdownItemTitle {
+        font-weight: 600;
+        display: block;
+    }
+
+    .dropdownItemDescription {
+        display: none;
     }
 
     .contactButton {
-        margin-top: 1rem;
         text-align: center;
+        display: block;
+        padding: 1rem 1.25rem;
+        border-radius: 0.75rem;
+        font-size: 1.02rem;
+        box-shadow: 0 10px 28px rgba(225, 76, 4, 0.18);
     }
 
     .mobileMenuButton {
         display: block;
+        transition: all 0.2s ease;
     }
 
-    /* Оверлей для мобильного меню */
-    .menu.mobileMenuOpen::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: -1;
+    .mobileMenuButton:hover {
+        color: #e14c04f0;
+        transform: scale(1.1);
     }
+
+    .mobileMenuButton:active {
+        transform: scale(0.95);
+    }
+
+    /* Overlay handled by concrete `.mobileOverlay` element to avoid covering menu children */
 
     /* На мобилке скрываем основную ссылку у пунктов с выпадающим меню */
     .dropdownLink {
         pointer-events: none;
+    }
+
+    /* Class applied from JS to indicate open dropdown on mobile */
+    .open {
+        /* marker class - styles for open state are defined with selectors elsewhere */
+    }
+
+    /* Улучшенные стили для секции контактов на мобилках */
+    .contactsGrid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        align-items: stretch;
+    }
+
+    .contactCard {
+        padding: 1rem 1.25rem;
+        margin: 0 1rem;
+        gap: 1rem;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 0.75rem;
+    }
+
+    .contactCard svg {
+        width: 34px;
+        height: 34px;
+        flex: 0 0 34px;
+        color: #93c5fd;
+    }
+
+    .contactText {
+        font-size: 1.02rem;
+        line-height: 1.35;
+        color: #eef2ff;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .contactsSection {
+        padding: 0.75rem 0;
     }
 }
 

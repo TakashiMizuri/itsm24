@@ -10,6 +10,7 @@ export default function Header() {
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
+    const mobileButtonRef = useRef<HTMLButtonElement>(null);
 
     // Данные для выпадающих меню
     const servicesMenu = [
@@ -27,7 +28,7 @@ export default function Header() {
     ];
 
     const aboutMenu = [
-        { title: 'Отзывы о нас', href: '/about/company' },
+        { title: 'Отзывы о нас', href: '/reviews' },
         { title: 'Наши клиенты', href: '/clients' },
         { title: 'Партнеры', href: '/partners' },
         { title: 'Специальная оценка условий труда', href: '/assessment-of-working-conditions' },
@@ -44,12 +45,13 @@ export default function Header() {
         closeAllDropdowns();
     }, [closeAllDropdowns]);
 
-    // Закрытие меню при клике вне области
+    // Закрытие меню при клике вне области, игнорируем клик по кнопке меню (предотвращаем гонку mousedown/click)
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-            if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-                closeAllDropdowns();
-            }
+            const target = event.target as Node;
+            if (menuRef.current && menuRef.current.contains(target)) return;
+            if (mobileButtonRef.current && mobileButtonRef.current.contains(target)) return;
+            closeAllDropdowns();
         };
 
         document.addEventListener('mousedown', handleClickOutside);
@@ -78,8 +80,37 @@ export default function Header() {
     };
 
     const toggleMobileMenu = () => {
-        setIsMobileMenuOpen(!isMobileMenuOpen);
+        setIsMobileMenuOpen((s) => !s);
+        // when opening the menu, close any open dropdowns
+        setActiveDropdown(null);
     };
+
+    // Close mobile menu on Escape and lock scroll while open
+    useEffect(() => {
+        const onKey = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') closeAllDropdowns();
+        };
+
+        if (isMobileMenuOpen) {
+            document.addEventListener('keydown', onKey);
+            // lock body scroll when menu is open
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.removeEventListener('keydown', onKey);
+            document.body.style.overflow = '';
+        }
+
+        return () => {
+            document.removeEventListener('keydown', onKey);
+            document.body.style.overflow = '';
+        };
+    }, [isMobileMenuOpen, closeAllDropdowns]);
+
+    const toggleDropdownMobile = useCallback((dropdownName: string) => {
+        if (window.innerWidth <= 768) {
+            setActiveDropdown((prev) => (prev === dropdownName ? null : dropdownName));
+        }
+    }, []);
 
     // Обработчик клика на сам пункт меню (ссылка)
     const handleMenuLinkClick = (e: React.MouseEvent, hasDropdown: boolean) => {
@@ -118,11 +149,23 @@ export default function Header() {
                     </Link>
 
                     {/* Основное меню */}
+                    {isMobileMenuOpen && (
+                        <div
+                            className={styles.mobileOverlay}
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                closeAllDropdowns();
+                            }}
+                            aria-hidden
+                        />
+                    )}
+
                     <div
-                        className={`${styles.menu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''
-                            }`}
+                        className={`${styles.menu} ${isMobileMenuOpen ? styles.menuOpen : ''}`}
                         ref={menuRef}
                         onMouseLeave={handleMenuLeave}
+                        role={isMobileMenuOpen ? 'dialog' : undefined}
+                        aria-modal={isMobileMenuOpen ? true : undefined}
                     >
                         <Link
                             href='/'
@@ -135,17 +178,38 @@ export default function Header() {
 
                         {/* Услуги с выпадающим меню */}
                         <div
-                            className={styles.dropdownContainer}
-                            onMouseEnter={() => handleDropdownEnter('services')}
-                            onMouseLeave={handleDropdownLeave}
+                            className={`${styles.dropdownContainer} ${activeDropdown === 'services' ? styles.open : ''}`}
+                            onMouseEnter={() => {
+                                if (window.innerWidth > 768) {
+                                    handleDropdownEnter('services');
+                                }
+                            }}
+                            onMouseLeave={() => {
+                                if (window.innerWidth > 768) {
+                                    handleDropdownLeave();
+                                }
+                            }}
+                            onClick={(e) => e.stopPropagation()}
                         >
-                            <div className={styles.dropdownTrigger}>
-                                <Link
-                                    href='/services'
+                            <div 
+                                className={styles.dropdownTrigger}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    toggleDropdownMobile('services');
+                                }}
+                                style={{ cursor: 'pointer' }}
+                            >
+                                <button
+                                    type="button"
                                     className={`${styles.menuLink} ${activeDropdown === 'services' ? styles.active : ''
                                         }`}
-                                    onClick={(e) => handleMenuLinkClick(e, true)}
-                                    onMouseEnter={() => handleDropdownEnter('services')}
+                                    onMouseEnter={() => {
+                                        if (window.innerWidth > 768) {
+                                            handleDropdownEnter('services');
+                                        }
+                                    }}
+                                    aria-expanded={activeDropdown === 'services'}
                                 >
                                     Услуги
                                     <Icon
@@ -155,7 +219,7 @@ export default function Header() {
                                         size={16}
                                         className={styles.dropdownIcon}
                                     />
-                                </Link>
+                                </button>
                             </div>
 
                             <div
@@ -192,17 +256,38 @@ export default function Header() {
 
                         {/* О нас с выпадающим меню */}
                         <div
-                            className={styles.dropdownContainer}
-                            onMouseEnter={() => handleDropdownEnter('about')}
-                            onMouseLeave={handleDropdownLeave}
+                            className={`${styles.dropdownContainer} ${activeDropdown === 'about' ? styles.open : ''}`}
+                            onMouseEnter={() => {
+                                if (window.innerWidth > 768) {
+                                    handleDropdownEnter('about');
+                                }
+                            }}
+                            onMouseLeave={() => {
+                                if (window.innerWidth > 768) {
+                                    handleDropdownLeave();
+                                }
+                            }}
+                            onClick={(e) => e.stopPropagation()}
                         >
-                            <div className={styles.dropdownTrigger}>
-                                <Link
-                                    href='/about'
+                            <div 
+                                className={styles.dropdownTrigger}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    toggleDropdownMobile('about');
+                                }}
+                                style={{ cursor: 'pointer' }}
+                            >
+                                <button
+                                    type="button"
                                     className={`${styles.menuLink} ${activeDropdown === 'about' ? styles.active : ''
                                         }`}
-                                    onClick={(e) => handleMenuLinkClick(e, true)}
-                                    onMouseEnter={() => handleDropdownEnter('about')}
+                                    onMouseEnter={() => {
+                                        if (window.innerWidth > 768) {
+                                            handleDropdownEnter('about');
+                                        }
+                                    }}
+                                    aria-expanded={activeDropdown === 'about'}
                                 >
                                     О нас
                                     <Icon
@@ -210,7 +295,7 @@ export default function Header() {
                                         size={16}
                                         className={styles.dropdownIcon}
                                     />
-                                </Link>
+                                </button>
                             </div>
 
                             <div
@@ -257,6 +342,7 @@ export default function Header() {
 
                     {/* Мобильное меню кнопка */}
                     <button
+                        ref={mobileButtonRef}
                         className={styles.mobileMenuButton}
                         onClick={toggleMobileMenu}
                         aria-label='Меню'

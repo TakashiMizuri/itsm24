@@ -78,11 +78,11 @@ export default function Itsm1C() {
             )}
 
             {/* Секция Наши услуги */}
-            <section className={styles.sectionDark}>
+            <section className={`${styles.sectionDark} ${isLoading ? styles.loading : ''}`}>
                 <div className={styles.container}>
-                    <h2 className={styles.sectionTitle}>НАШИ УСЛУГИ</h2>
+                    <h2 className={`${styles.sectionTitle} ${isLoading ? styles.loading : ''}`}>НАШИ УСЛУГИ</h2>
                     <div className={styles.productsGrid}>
-                        <div className={styles.productCard}>
+                        <div className={`${styles.productCard} ${isLoading ? styles.loading : ''}`}>
                             <div className={styles.productImage}>
                                 <Image
                                     src='/closeup-caucasian-software-coder-hands-typing-keyboard-front-computer-screens-with-programming-interface-database-developer-sitting-desk-writing-algorithm-it-agency.jpg'
@@ -115,7 +115,7 @@ export default function Itsm1C() {
                                 удаленное администрирование и обслуживание программ 1С.
                             </p>
                         </div>
-                        <div className={styles.productCard}>
+                        <div className={`${styles.productCard} ${isLoading ? styles.loading : ''}`}>
                             <div className={styles.productImage}>
                                 <Image
                                     src='/man-woman-working-diagrams-together.jpg'
@@ -137,11 +137,11 @@ export default function Itsm1C() {
             </section>
 
             {/* Секция Квалификация */}
-            <section className={styles.section}>
+            <section className={`${styles.section} ${isLoading ? styles.loading : ''}`}>
                 <div className={styles.container}>
                     <div className={styles.qualificationSection}>
-                        <div className={styles.qualificationContent}>
-                            <h2 className={styles.sectionTitle}>КВАЛИФИКАЦИЯ</h2>
+                        <div className={`${styles.qualificationContent} ${isLoading ? styles.loading : ''}`}>
+                            <h2 className={`${styles.sectionTitle} ${isLoading ? styles.loading : ''}`}>КВАЛИФИКАЦИЯ</h2>
                             <p className={styles.qualificationText}>
                                 Квалификация сотрудников ООО «АйТиСМ» подтверждается
                                 Сертификатами, которые выдает 1С по результатам испытаний. У
@@ -178,11 +178,11 @@ export default function Itsm1C() {
             </section>
 
             {/* Секция С кем работаем */}
-            <section className={styles.sectionDark}>
+            <section className={`${styles.sectionDark} ${isLoading ? styles.loading : ''}`}>
                 <div className={styles.container}>
-                    <h2 className={styles.sectionTitle}>С КЕМ РАБОТАЕМ</h2>
+                    <h2 className={`${styles.sectionTitle} ${isLoading ? styles.loading : ''}`}>С КЕМ РАБОТАЕМ</h2>
                     <div className={styles.clientsGrid}>
-                        <div className={styles.clientCard}>
+                        <div className={`${styles.clientCard} ${isLoading ? styles.loading : ''}`}>
                             <div className={styles.clientIcon}>📊</div>
                             <h3 className={styles.clientTitle}>С бухгалтерами</h3>
                             <p className={styles.clientDescription}>
@@ -193,7 +193,7 @@ export default function Itsm1C() {
                                 обеспечение 1С к потребностям клиента.
                             </p>
                         </div>
-                        <div className={styles.clientCard}>
+                        <div className={`${styles.clientCard} ${isLoading ? styles.loading : ''}`}>
                             <div className={styles.clientIcon}>👔</div>
                             <h3 className={styles.clientTitle}>С руководителями</h3>
                             <p className={styles.clientDescription}>
@@ -263,10 +263,10 @@ export default function Itsm1C() {
             </section>
 
             {/* Секция О нас */}
-            <section className={styles.section}>
+            <section className={`${styles.section} ${isLoading ? styles.loading : ''}`}>
                 <div className={styles.container}>
-                    <h2 className={styles.sectionTitle}>О нас</h2>
-                    <div className={styles.aboutGrid}>
+                    <h2 className={`${styles.sectionTitle} ${isLoading ? styles.loading : ''}`}>О нас</h2>
+                    <div className={`${styles.aboutGrid} ${isLoading ? styles.loading : ''}`}>
                         <div className={styles.aboutContent}>
                             <p className={styles.aboutText}>
                                 Группа компаний «АйТиСМ» готовы предложить Вам комплексные
@@ -319,18 +319,18 @@ export default function Itsm1C() {
             </section>
 
             {/* Секция Отзывы */}
-            <section className={styles.sectionDark}>
+            <section className={`${styles.sectionDark} ${isLoading ? styles.loading : ''}`}>
                 <div className={styles.container}>
-                    <h2 className={styles.sectionTitle}>Отзывы</h2>
-                    <div className={styles.reviewsGrid}>
-                        <div className={styles.reviewCard}>
+                    <h2 className={`${styles.sectionTitle} ${isLoading ? styles.loading : ''}`}>Отзывы</h2>
+                    <div className={`${styles.reviewsGrid} ${isLoading ? styles.loading : ''}`}>
+                        <div className={`${styles.reviewCard} ${isLoading ? styles.loading : ''}`}>
                             <p className={styles.reviewText}>
                                 &quot;Квалифицированные консультации, оперативное решение
                                 поставленных задач&quot;
                             </p>
                             <p className={styles.reviewAuthor}>- ООО &quot;ЛПЗ&quot;СЕГАЛ&quot;</p>
                         </div>
-                        <div className={styles.reviewCard}>
+                        <div className={`${styles.reviewCard} ${isLoading ? styles.loading : ''}`}>
                             <p className={styles.reviewText}>
                                 &quot;Выражаем огромную благодарность нашим незаменимым партнерам в
                                 лице сотрудников «АйТиСМ». Решение проблем — это Ваш конёк.
@@ -339,7 +339,7 @@ export default function Itsm1C() {
                             </p>
                             <p className={styles.reviewAuthor}>- Марина</p>
                         </div>
-                        <div className={styles.reviewCard}>
+                        <div className={`${styles.reviewCard} ${isLoading ? styles.loading : ''}`}>
                             <p className={styles.reviewText}>
                                 &quot;Мне нравится индивидуальный подход к каждому специалисту нашей
                                 компании, умение доходчиво и понятно объяснить и помочь&quot;
