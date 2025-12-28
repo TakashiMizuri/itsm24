@@ -1,9 +1,55 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './Footer.module.css';
 import Icon from './Icon';
 
 export default function Footer() {
 	const currentYear = new Date().getFullYear();
+
+	const socialNetworks = [
+		{
+			name: 'Mail',
+			url: 'mailto:sale@itsm24.ru',
+			icon: '/social/mail.png',
+			alt: 'Mail',
+		},
+		{
+			name: 'Instagram',
+			url: 'https://www.instagram.com/itsm24_ru',
+			icon: '/social/instagram.png',
+			alt: 'Instagram',
+		},
+		// {
+		// 	name: 'Odnoklassniki',
+		// 	url: 'https://itsm24.ru/',
+		// 	icon: '/social/ok.svg',
+		// 	alt: 'Одноклассники',
+		// },
+		{
+			name: 'Telegram',
+			url: 'https://t-do.ru/avasiliev24',
+			icon: '/social/telegram.svg',
+			alt: 'Telegram',
+		},
+		{
+			name: 'Viber',
+			url: 'https://www.viber.click/79135324480',
+			icon: '/social/viber.svg',
+			alt: 'Viber',
+		},
+		{
+			name: 'VKontakte',
+			url: 'https://itsm24.ru/',
+			icon: '/social/vk.svg',
+			alt: 'ВКонтакте',
+		},
+		{
+			name: 'WhatsApp',
+			url: 'https://wa.me/79135324480',
+			icon: '/social/whatsapp.svg',
+			alt: 'WhatsApp',
+		},
+	];
 
 	return (
 		<footer className={styles.footer}>
@@ -68,6 +114,34 @@ export default function Footer() {
 										<br />
 										офис 202
 									</p>
+								</div>
+							</div>
+
+							{/* Социальные сети */}
+							<div className={styles.socialSection}>
+								<h5 className={styles.socialTitle}>Социальные сети</h5>
+								<div className={styles.socialGrid}>
+									{socialNetworks.map((social, index) => (
+										<a
+											key={index}
+											href={social.url}
+											className={styles.socialLink}
+											target='_blank'
+											rel='noopener noreferrer'
+											aria-label={`${social.name} - открыть в новой вкладке`}
+											title={social.name}
+										>
+											<div className={styles.socialIconWrapper}>
+												<Image
+													src={social.icon}
+													alt={social.alt}
+													width={40}
+													height={40}
+													className={styles.socialIcon}
+												/>
+											</div>
+										</a>
+									))}
 								</div>
 							</div>
 						</div>

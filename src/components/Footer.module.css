@@ -1,278 +1,410 @@
+/* Стили для социальных сетей */
+.socialSection {
+	margin-top: 1.5rem;
+	padding-top: 1.5rem;
+	border-top: 1px solid #374151;
+}
+
+.socialTitle {
+	font-size: 1.1rem;
+	font-weight: 600;
+	color: white;
+	margin-bottom: 1rem;
+	text-align: left;
+}
+
+.socialGrid {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	justify-content: flex-start;
+}
+
+.socialLink {
+	display: inline-block;
+	transition: transform 0.2s ease;
+}
+
+.socialLink:hover {
+	transform: translateY(-2px);
+}
+
+.socialIconWrapper {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.2s ease;
+	overflow: hidden;
+}
+
+.socialLink:hover .socialIconWrapper {
+	background: white;
+}
+
+.socialIcon {
+	width: 24px;
+	height: 24px;
+	object-fit: contain;
+	transition: transform 0.2s ease;
+}
+
+.socialLink:hover .socialIcon {
+	transform: scale(1.1);
+}
+
+/* Альтернатива: полупрозрачный белый фон */
+.socialIconWrapperAlt {
+	background: rgba(255, 255, 255, 0.9); /* Полупрозрачный белый */
+}
+
+/* Адаптивность для социальных сетей */
+@media (max-width: 768px) {
+	.socialSection {
+		text-align: center;
+		margin-top: 1.25rem;
+		padding-top: 1.25rem;
+	}
+
+	.socialTitle {
+		text-align: center;
+		font-size: 1rem;
+	}
+
+	.socialGrid {
+		justify-content: center;
+		gap: 0.5rem;
+	}
+
+	.socialIconWrapper {
+		width: 36px;
+		height: 36px;
+	}
+
+	.socialIcon {
+		width: 20px;
+		height: 20px;
+	}
+}
+
+@media (max-width: 480px) {
+	.socialSection {
+		margin-top: 1rem;
+		padding-top: 1rem;
+	}
+
+	.socialTitle {
+		font-size: 0.95rem;
+		margin-bottom: 0.75rem;
+	}
+
+	.socialIconWrapper {
+		width: 32px;
+		height: 32px;
+		border-width: 1px;
+	}
+
+	.socialIcon {
+		width: 18px;
+		height: 18px;
+	}
+}
+
+@media (max-width: 360px) {
+	.socialGrid {
+		gap: 0.4rem;
+	}
+
+	.socialIconWrapper {
+		width: 30px;
+		height: 30px;
+	}
+
+	.socialIcon {
+		width: 16px;
+		height: 16px;
+	}
+}
+
+/* Остальные стили остаются без изменений */
 .footer {
-  background-color: #1f2937;
-  color: white;
-  margin-top: auto;
-  border-top: 1px solid #374151;
+	background-color: #1f2937;
+	color: white;
+	margin-top: auto;
+	border-top: 1px solid #374151;
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 1rem;
 }
 
 /* Верхняя часть футера */
 .topSection {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 3rem;
-  padding: 3rem 0 2rem;
-  border-bottom: 1px solid #374151;
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	gap: 3rem;
+	padding: 3rem 0 2rem;
+	border-bottom: 1px solid #374151;
 }
 
 /* Контакты */
 .contactsColumn {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
 }
 
 .navTitle {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: white;
-  line-height: 1.2;
+	font-size: 1.5rem;
+	font-weight: 600;
+	margin-bottom: 0.5rem;
+	color: white;
+	line-height: 1.2;
 }
 
 .contactsList {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
 }
 
 .contactItem {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
+	display: flex;
+	align-items: flex-start;
+	gap: 0.75rem;
 }
 
 .iconGroup {
-  flex-shrink: 0;
-  margin-top: 0.25rem;
+	flex-shrink: 0;
+	margin-top: 0.25rem;
 }
 
 .contactIcon {
-  color: #60a5fa;
-  min-width: 26px;
+	color: #60a5fa;
+	min-width: 26px;
 }
 
 .contactInfo {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
 }
 
 .navLink {
-  color: #d1d5db;
-  text-decoration: none;
-  transition: color 0.2s ease;
-  font-size: 0.95rem;
-  line-height: 1.4;
-  display: block;
+	color: #d1d5db;
+	text-decoration: none;
+	transition: color 0.2s ease;
+	font-size: 0.95rem;
+	line-height: 1.4;
+	display: block;
 }
 
 .navLink:hover {
-  color: #60a5fa;
+	color: #60a5fa;
 }
 
 .navLink:first-child {
-  margin-bottom: 0.25rem;
+	margin-bottom: 0.25rem;
 }
 
 .contactText {
-  color: #d1d5db;
-  font-size: 0.95rem;
-  line-height: 1.4;
-  margin: 0;
+	color: #d1d5db;
+	font-size: 0.95rem;
+	line-height: 1.4;
+	margin: 0;
 }
 
 /* Карта */
 .mapContainer {
-  width: 100%;
-  position: relative;
+	width: 100%;
+	position: relative;
 }
 
 .mapWrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 300px;
-  border-radius: 0.75rem;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  background: #2d3748;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	min-height: 300px;
+	border-radius: 0.75rem;
+	overflow: hidden;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+	background: #2d3748;
 }
 
 .mapIframe {
-  width: 100%;
-  height: 100%;
-  min-height: 300px;
-  border: none;
-  display: block;
-  position: relative;
-  z-index: 1;
+	width: 100%;
+	height: 100%;
+	min-height: 300px;
+	border: none;
+	display: block;
+	position: relative;
+	z-index: 1;
 }
 
 /* Нижняя часть футера */
 .bottomSection {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 0;
-  flex-wrap: wrap;
-  gap: 1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1.5rem 0;
+	flex-wrap: wrap;
+	gap: 1rem;
 }
 
 .copyright {
-  color: #9ca3af;
-  font-size: 0.875rem;
+	color: #9ca3af;
+	font-size: 0.875rem;
 }
 
 .legal {
-  display: flex;
-  gap: 1.5rem;
+	display: flex;
+	gap: 1.5rem;
 }
 
 .legalLink {
-  color: #9ca3af;
-  text-decoration: none;
-  font-size: 0.875rem;
-  transition: color 0.2s ease;
+	color: #9ca3af;
+	text-decoration: none;
+	font-size: 0.875rem;
+	transition: color 0.2s ease;
 }
 
 .legalLink:hover {
-  color: #60a5fa;
+	color: #60a5fa;
 }
 
 /* Адаптивность */
 @media (max-width: 1024px) {
-  .topSection {
-    gap: 2rem;
-  }
+	.topSection {
+		gap: 2rem;
+	}
 }
 
 @media (max-width: 768px) {
-  .topSection {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 2rem 0 1.5rem;
-  }
-  
-  .contactsColumn {
-    text-align: center;
-  }
-  
-  .contactItem {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 0.5rem;
-  }
-  
-  .iconGroup {
-    margin-top: 0;
-  }
-  
-  .contactInfo {
-    align-items: center;
-  }
-  
-  .mapWrapper {
-    min-height: 250px;
-  }
-  
-  .mapIframe {
-    min-height: 250px;
-  }
-  
-  .bottomSection {
-    flex-direction: column;
-    text-align: center;
-    gap: 0.75rem;
-    padding: 1.25rem 0;
-  }
-  
-  .legal {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  
-  .legalLink {
-    font-size: 0.8rem;
-  }
+	.topSection {
+		grid-template-columns: 1fr;
+		gap: 2rem;
+		padding: 2rem 0 1.5rem;
+	}
+
+	.contactsColumn {
+		text-align: center;
+	}
+
+	.contactItem {
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		gap: 0.5rem;
+	}
+
+	.iconGroup {
+		margin-top: 0;
+	}
+
+	.contactInfo {
+		align-items: center;
+	}
+
+	.mapWrapper {
+		min-height: 250px;
+	}
+
+	.mapIframe {
+		min-height: 250px;
+	}
+
+	.bottomSection {
+		flex-direction: column;
+		text-align: center;
+		gap: 0.75rem;
+		padding: 1.25rem 0;
+	}
+
+	.legal {
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+
+	.legalLink {
+		font-size: 0.8rem;
+	}
 }
 
 @media (max-width: 480px) {
-  .container {
-    padding: 0 0.75rem;
-  }
-  
-  .topSection {
-    padding: 1.5rem 0 1rem;
-  }
-  
-  .navTitle {
-    font-size: 1.25rem;
-  }
-  
-  .contactsList {
-    gap: 1rem;
-  }
-  
-  .navLink,
-  .contactText {
-    font-size: 0.9rem;
-  }
-  
-  .mapWrapper {
-    min-height: 220px;
-    border-radius: 0.5rem;
-  }
-  
-  .mapIframe {
-    min-height: 220px;
-  }
-  
-  .bottomSection {
-    padding: 1rem 0;
-  }
-  
-  .copyright {
-    font-size: 0.8rem;
-  }
-  
-  .legalLink {
-    font-size: 0.75rem;
-  }
+	.container {
+		padding: 0 0.75rem;
+	}
+
+	.topSection {
+		padding: 1.5rem 0 1rem;
+	}
+
+	.navTitle {
+		font-size: 1.25rem;
+	}
+
+	.contactsList {
+		gap: 1rem;
+	}
+
+	.navLink,
+	.contactText {
+		font-size: 0.9rem;
+	}
+
+	.mapWrapper {
+		min-height: 220px;
+		border-radius: 0.5rem;
+	}
+
+	.mapIframe {
+		min-height: 220px;
+	}
+
+	.bottomSection {
+		padding: 1rem 0;
+	}
+
+	.copyright {
+		font-size: 0.8rem;
+	}
+
+	.legalLink {
+		font-size: 0.75rem;
+	}
 }
 
 @media (max-width: 360px) {
-  .topSection {
-    gap: 1.5rem;
-  }
-  
-  .mapWrapper {
-    min-height: 200px;
-  }
-  
-  .mapIframe {
-    min-height: 200px;
-  }
-  
-  .legal {
-    gap: 0.75rem;
-  }
+	.topSection {
+		gap: 1.5rem;
+	}
+
+	.mapWrapper {
+		min-height: 200px;
+	}
+
+	.mapIframe {
+		min-height: 200px;
+	}
+
+	.legal {
+		gap: 0.75rem;
+	}
 }
 
 /* Для очень высоких экранов */
 @media (min-height: 1000px) {
-  .mapWrapper {
-    min-height: 400px;
-  }
-  
-  .mapIframe {
-    min-height: 400px;
-  }
+	.mapWrapper {
+		min-height: 400px;
+	}
+
+	.mapIframe {
+		min-height: 400px;
+	}
 }
