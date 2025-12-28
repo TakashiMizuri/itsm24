@@ -175,17 +175,15 @@
 
 .contactItem {
 	display: flex;
-	align-items: flex-start;
+	align-items: center;
 	gap: 0.75rem;
 }
 
 .iconGroup {
 	flex-shrink: 0;
-	margin-top: 0.25rem;
 }
 
 .contactIcon {
-	color: #60a5fa;
 	min-width: 26px;
 }
 
@@ -206,10 +204,6 @@
 
 .navLink:hover {
 	color: #60a5fa;
-}
-
-.navLink:first-child {
-	margin-bottom: 0.25rem;
 }
 
 .contactText {
