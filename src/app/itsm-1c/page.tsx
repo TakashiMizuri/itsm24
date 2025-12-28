@@ -221,7 +221,9 @@ export default function Itsm1C() {
 							alt='Сертификаты 1С'
 							width={500}
 							height={350}
-							className={styles.qualificationImg}
+							className={`${styles.qualificationImg} ${
+								isLoading ? styles.loading : ''
+							}`}
 						/>
 					</div>
 				</div>
@@ -274,10 +276,10 @@ export default function Itsm1C() {
 			</section>
 
 			{/* Секция Вопросы, которые мы решаем */}
-			<section className={styles.section}>
-				<div className={styles.container}>
-					<h2 className={styles.sectionTitle}>ВОПРОСЫ, КОТОРЫЕ МЫ РЕШАЕМ</h2>
-					<div className={styles.servicesGrid}>
+		<section className={`${styles.section} ${isLoading ? styles.loading : ''}`}>
+			<div className={styles.container}>
+				<h2 className={`${styles.sectionTitle} ${isLoading ? styles.loading : ''}`}>ВОПРОСЫ, КОТОРЫЕ МЫ РЕШАЕМ</h2>
+				<div className={`${styles.servicesGrid} ${isLoading ? styles.loading : ''}`}>
 						{[
 							'Бесплатный подбор, продажа, установка программного обеспечения «1С» и консультация по работе с ним',
 							'Оказание услуг по доработке программ на базе «1С»',
@@ -303,10 +305,10 @@ export default function Itsm1C() {
 			</section>
 
 			{/* Секция Спецпредложения */}
-			<section className={styles.promoSection}>
-				<div className={styles.container}>
-					<h2 className={styles.promoTitle}>СПЕЦПРЕДЛОЖЕНИЯ</h2>
-					<div className={styles.promoContent}>
+		<section className={`${styles.promoSection} ${isLoading ? styles.loading : ''}`}>
+			<div className={styles.container}>
+				<h2 className={`${styles.promoTitle} ${isLoading ? styles.loading : ''}`}>СПЕЦПРЕДЛОЖЕНИЯ</h2>
+				<div className={`${styles.promoContent} ${isLoading ? styles.loading : ''}`}>
 						<div className={styles.promoCard}>
 							<h3 className={styles.promoCardTitle}>
 								Дарим антивирус Лаборатории Касперского при покупке
