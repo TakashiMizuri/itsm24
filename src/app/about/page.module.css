@@ -1,0 +1,892 @@
+/* page.module.css */
+
+.page {
+    min-height: 100vh;
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Герой секция - УПРОЩЕННАЯ */
+.hero {
+    padding: 3rem 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    text-align: center;
+}
+
+.hero.loading {
+    opacity: 0;
+}
+
+.heroContent {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.heroTitle {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.1s;
+}
+
+.heroTitle.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.heroDescription {
+    font-size: 1.2rem;
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.2s;
+}
+
+.heroDescription.loading {
+    animation: none;
+    opacity: 0;
+}
+
+/* Общие стили секций */
+.section {
+    padding: 4rem 0;
+    background-color: white;
+}
+
+.sectionDark {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.sectionHeader {
+    margin-bottom: 3rem;
+    text-align: left; /* Заголовки по левому краю */
+}
+
+.sectionTitle {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.1s;
+}
+
+.sectionTitle.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.sectionTitle::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0; /* Линия начинается слева */
+    width: 80px;
+    height: 4px;
+    background: #e14c04f0;
+    border-radius: 2px;
+}
+
+.sectionSubtitle {
+    font-size: 1.1rem;
+    color: #6b7280;
+    line-height: 1.6;
+    font-weight: 500;
+    margin-top: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.2s;
+}
+
+.sectionSubtitle.loading {
+    animation: none;
+    opacity: 0;
+}
+
+/* Стили для блоков автоматизации - ОДИНАКОВЫЕ */
+.automationContent {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: start;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.3s;
+}
+
+.automationContent.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.automationMain {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.automationText {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #4b5563;
+    font-weight: 500;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.4s;
+}
+
+.automationText.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.automationBlock {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.automationBlock.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.blockContent {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.blockTitle {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.blockTitle.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.blockItems {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.blockItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.blockItem:nth-child(1) {
+    animation-delay: 0.2s;
+}
+.blockItem:nth-child(2) {
+    animation-delay: 0.3s;
+}
+.blockItem:nth-child(3) {
+    animation-delay: 0.4s;
+}
+.blockItem:nth-child(4) {
+    animation-delay: 0.5s;
+}
+.blockItem:nth-child(5) {
+    animation-delay: 0.6s;
+}
+
+.blockItem.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.blockIcon {
+    color: #e14c04f0;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+
+.blockItem span {
+    color: #4b5563;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.automationSidebar {
+    position: sticky;
+    top: 2rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.6s;
+}
+
+.automationSidebar.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.consultationCard {
+    background: linear-gradient(135deg, #e14c04f0 0%, #c84303 100%);
+    padding: 2rem;
+    border-radius: 1rem;
+    color: white;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.3s;
+}
+
+.consultationCard.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.consultationTitle {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.consultationText {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+.consultationButton {
+    background: white;
+    color: #e14c04f0;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: 100%;
+}
+
+.consultationButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Секция безопасности */
+.securityContent {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.3s;
+}
+
+.securityContent.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.securityIntro {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #4b5563;
+    font-weight: 500;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.4s;
+}
+
+.securityIntro.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.securityGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 3rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.5s;
+}
+
+.securityGrid.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.securityColumn {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.securityColumn:nth-child(1) {
+    animation-delay: 0.6s;
+}
+
+.securityColumn:nth-child(2) {
+    animation-delay: 0.8s;
+}
+
+.securityColumn.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.securityColumnTitle {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 1.5rem;
+}
+
+.securityList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.securityList li {
+    position: relative;
+    padding-left: 1.5rem;
+    color: #4b5563;
+    font-weight: 500;
+    line-height: 1.5;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.securityList li:nth-child(1) {
+    animation-delay: 0.2s;
+}
+.securityList li:nth-child(2) {
+    animation-delay: 0.3s;
+}
+.securityList li:nth-child(3) {
+    animation-delay: 0.4s;
+}
+.securityList li:nth-child(4) {
+    animation-delay: 0.5s;
+}
+.securityList li:nth-child(5) {
+    animation-delay: 0.6s;
+}
+.securityList li:nth-child(6) {
+    animation-delay: 0.7s;
+}
+.securityList li:nth-child(7) {
+    animation-delay: 0.8s;
+}
+.securityList li:nth-child(8) {
+    animation-delay: 0.9s;
+}
+
+.securityList li.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.securityList li:before {
+    content: '•';
+    color: #e14c04f0;
+    position: absolute;
+    left: 0;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+/* Секция преимуществ - ИСПРАВЛЕНЫ ЦЕНТРОВКИ */
+.advantagesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.3s;
+}
+
+.advantagesGrid.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.advantageCard {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.advantageCard.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.advantageCard:nth-child(1) {
+    animation-delay: 0.4s;
+}
+.advantageCard:nth-child(2) {
+    animation-delay: 0.5s;
+}
+.advantageCard:nth-child(3) {
+    animation-delay: 0.6s;
+}
+.advantageCard:nth-child(4) {
+    animation-delay: 0.7s;
+}
+
+.advantageCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.advantageCardInner {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Все элементы карточки по центру */
+    text-align: center;
+    height: 100%;
+}
+
+.advantageIconWrapper {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.advantageIcon {
+    stroke: #e14c04f0;
+}
+
+.advantageTitle {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+}
+
+.advantageDescription {
+    color: #6b7280;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Секция принципов */
+.principlesSection {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    color: white;
+}
+
+.principlesTitle {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+    text-align: left; /* Заголовок по левому краю */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.1s;
+}
+
+.principlesTitle.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.principlesTitle::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0; /* Линия начинается слева */
+    width: 80px;
+    height: 4px;
+    background: #e14c04f0;
+    border-radius: 2px;
+}
+
+.principlesContent {
+    max-width: 800px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.3s;
+}
+
+.principlesContent.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.principlesList {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.principleItem {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.principleItem:nth-child(1) {
+    animation-delay: 0.4s;
+}
+.principleItem:nth-child(2) {
+    animation-delay: 0.5s;
+}
+.principleItem:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.principleItem.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.principleNumber {
+    min-width: 70;
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.1);
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.principleContent {
+    flex: 1;
+}
+
+.principleTitle {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.principleDescription {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Секция помощи */
+.helpSection {
+    background: #f1f5f9;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.helpSection.loading {
+    opacity: 0;
+}
+
+.helpTitle {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.1s;
+}
+
+.helpTitle.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.helpBlock {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.3s;
+}
+
+.helpBlock.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.helpText {
+    font-size: 1.1rem;
+    color: #4b5563;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.4s;
+}
+
+.helpText.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.contactItem {
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.contactItem:nth-child(1) {
+    animation-delay: 0.5s;
+}
+.contactItem:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+.contactItem.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.contactItem h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.phone {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #e14c04f0;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    transition: color 0.2s ease;
+}
+
+.phone:hover {
+    color: #c84303;
+}
+
+.hours {
+    font-size: 0.95rem;
+    color: #6b7280;
+    margin: 0;
+    font-weight: 600;
+}
+
+.email {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1f2937;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.email:hover {
+    color: #e14c04f0;
+}
+
+.consultBtn {
+    background: #e14c04f0;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: 100%;
+    display: block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: 0.7s;
+}
+
+.consultBtn.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.consultBtn:hover {
+    background: #c84303;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(225, 76, 4, 0.3);
+}
+
+/* Анимация */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .automationContent {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .automationSidebar {
+        position: static;
+    }
+
+    .securityGrid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .heroTitle {
+        font-size: 2rem;
+    }
+
+    .heroDescription {
+        font-size: 1.1rem;
+    }
+
+    .sectionTitle {
+        font-size: 1.8rem;
+    }
+
+    .advantagesGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .principleItem {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .principleNumber {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 2rem 0;
+    }
+
+    .heroTitle {
+        font-size: 1.8rem;
+    }
+
+    .section,
+    .sectionDark,
+    .principlesSection,
+    .helpSection {
+        padding: 3rem 0;
+    }
+
+    .advantagesGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .securityGrid {
+        gap: 1rem;
+    }
+
+    .securityColumn {
+        padding: 1.5rem;
+    }
+}
+
+.loading {
+    animation: none !important;
+    opacity: 0 !important;
+}

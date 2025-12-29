@@ -94,7 +94,7 @@ export default function Footer() {
 								<div className={styles.contactInfo}>
 									<p className={styles.contactText}>
 										Приём звонков ежедневно
-										<br />с 09:00 до 18:00 (пн-пт)
+										<br />с 09:00 до 18:00 (Пн-Пт)
 									</p>
 								</div>
 							</div>

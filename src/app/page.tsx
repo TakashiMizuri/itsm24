@@ -88,7 +88,7 @@ export default function Home() {
                         <h2 className={styles.companyTitle}>ООО «АйТиСМ»</h2>
                         <p className={styles.companyDescription}>
                             Профессиональные решения в области систем безопасности и
-                            автоматизации бизнес-процессов. Более 5 лет на рынке Красноярска и
+                            автоматизации бизнес-процессов 1С. Более 5 лет на рынке Красноярска и
                             края.
                         </p>
                         <div className={styles.companyStats}>

@@ -7,7 +7,6 @@ import Icon from '@/components/Icon';
 import RequestModal from '@/components/RequestModal';
 
 export default function Itsm1C() {
-	const [formOpen, setFormOpen] = useState(false);
 	const [isLoading, setIsLoading] = useState(true); // Добавляем состояние загрузки
 	const [isModalOpen, setIsModalOpen] = useState(false); // Состояние для модального окна
 
@@ -76,8 +75,8 @@ export default function Itsm1C() {
 				<Image
 					src='/smiling-businesswoman-enjoying-talk-with-colleagues-teamwork-with-laptops.jpg'
 					alt='IT решения для бизнеса'
-					width={500}
-					height={500}
+					width={1000}
+					height={1000}
 					className={`${styles.heroImg} ${isLoading ? styles.loading : ''}`}
 					priority
 				/>

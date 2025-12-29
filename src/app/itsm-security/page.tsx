@@ -1,263 +1,327 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './page.module.css';
+import Icon from '@/components/Icon';
+import RequestModal from '@/components/RequestModal';
+import Carousel, { CarouselImage } from '@/components/Carousel';
 
-export default function ItsmSecurity() {
-	return (
-		<div className={styles.page}>
-			{/* Герой секция */}
-			<section className={styles.hero}>
-				<div className={styles.heroContent}>
-					<h1 className={styles.heroTitle}>
-						Профессиональные решения для бизнеса в Красноярске
-					</h1>
-					<p className={styles.heroDescription}>
-						Комплексные услуги по системам безопасности и автоматизации 1С.
-						Более 5 лет на рынке
-					</p>
-					<div className={styles.heroButtons}>
-						<Link
-							href='/services/security'
-							className={styles.primaryButton}
-						>
-							Системы безопасности
-						</Link>
-						<Link
-							href='/services/1c'
-							className={styles.secondaryButton}
-						>
-							1С интеграции
-						</Link>
-					</div>
-				</div>
-				<div className={styles.heroImage}>
-					<Image
-						src='/hero-image.svg'
-						alt='IT решения для бизнеса'
-						width={500}
-						height={400}
-						priority
-					/>
-				</div>
-			</section>
+export default function Itsm1C() {
+    const [isLoading, setIsLoading] = useState(true);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
-			{/* Секция о компании */}
-			<section className={styles.section}>
-				<div className={styles.container}>
-					<h2 className={styles.sectionTitle}>ООО «АйТиСМ»</h2>
-					<div className={styles.aboutContent}>
-						<p className={styles.aboutText}>
-							Мы - группа компаний, предлагающая комплексные профессиональные
-							решения в области автоматизации бизнес-процессов и систем
-							безопасности. Работаем с 2013 года в Красноярске и крае.
-						</p>
-						<div className={styles.stats}>
-							<div className={styles.stat}>
-								<div className={styles.statNumber}>5+</div>
-								<div className={styles.statLabel}>лет на рынке</div>
-							</div>
-							<div className={styles.stat}>
-								<div className={styles.statNumber}>500+</div>
-								<div className={styles.statLabel}>успешных проектов</div>
-							</div>
-							<div className={styles.stat}>
-								<div className={styles.statNumber}>24/7</div>
-								<div className={styles.statLabel}>техподдержка</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 0);
 
-			{/* Секция основных услуг */}
-			<section className={styles.sectionDark}>
-				<div className={styles.container}>
-					<h2 className={styles.sectionTitle}>Наши основные услуги</h2>
-					<div className={styles.mainServices}>
-						{/* Системы безопасности */}
-						<div className={styles.mainService}>
-							<div className={styles.serviceIcon}>🔒</div>
-							<h3 className={styles.serviceTitle}>Системы безопасности</h3>
-							<p className={styles.serviceDescription}>
-								Полный комплекс услуг по проектированию, монтажу и обслуживанию
-								систем безопасности для бизнеса и частных объектов
-							</p>
-							<ul className={styles.serviceList}>
-								<li>Видеонаблюдение</li>
-								<li>Пожарная сигнализация</li>
-								<li>Охранные системы</li>
-								<li>Контроль доступа</li>
-								<li>Домофоны и СКУД</li>
-							</ul>
-							<Link
-								href='/services/security'
-								className={styles.serviceLink}
-							>
-								Подробнее →
-							</Link>
-						</div>
+        return () => clearTimeout(timer);
+    }, []);
 
-						{/* 1С интеграции */}
-						<div className={styles.mainService}>
-							<div className={styles.serviceIcon}>📊</div>
-							<h3 className={styles.serviceTitle}>1С интеграции</h3>
-							<p className={styles.serviceDescription}>
-								Автоматизация бизнес-процессов, интеграция с сайтами, настройка
-								и сопровождение 1С на предприятии
-							</p>
-							<ul className={styles.serviceList}>
-								<li>Внедрение 1С</li>
-								<li>Интеграция с сайтом</li>
-								<li>Доработка под бизнес</li>
-								<li>Обучение персонала</li>
-								<li>Техническая поддержка</li>
-							</ul>
-							<Link
-								href='/services/1c'
-								className={styles.serviceLink}
-							>
-								Подробнее →
-							</Link>
-						</div>
-					</div>
-				</div>
-			</section>
+    useEffect(() => {
+        const onKey = (e: KeyboardEvent) => {
+            if (e.key === 'Escape' && isModalOpen) {
+                setIsModalOpen(false);
+            }
+        };
 
-			{/* Секция преимуществ */}
-			<section className={styles.section}>
-				<div className={styles.container}>
-					<h2 className={styles.sectionTitle}>Почему выбирают нас</h2>
-					<div className={styles.features}>
-						<div className={styles.feature}>
-							<div className={styles.featureIcon}>🏆</div>
-							<h3 className={styles.featureTitle}>Опыт</h3>
-							<p className={styles.featureDescription}>
-								Более 5 лет успешной работы на рынке
-							</p>
-						</div>
-						<div className={styles.feature}>
-							<div className={styles.featureIcon}>⚡</div>
-							<h3 className={styles.featureTitle}>Оперативность</h3>
-							<p className={styles.featureDescription}>
-								Быстрый выезд специалиста и решение задач в срок
-							</p>
-						</div>
-						<div className={styles.feature}>
-							<div className={styles.featureIcon}>🛡️</div>
-							<h3 className={styles.featureTitle}>Гарантия</h3>
-							<p className={styles.featureDescription}>
-								Гарантия на работы и оборудование до 3 лет
-							</p>
-						</div>
-						<div className={styles.feature}>
-							<div className={styles.featureIcon}>💰</div>
-							<h3 className={styles.featureTitle}>Ценовая политика</h3>
-							<p className={styles.featureDescription}>
-								Гибкие цены и индивидуальный подход к каждому клиенту
-							</p>
-						</div>
-					</div>
-				</div>
-			</section>
+        if (isModalOpen) {
+            document.addEventListener('keydown', onKey);
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.removeEventListener('keydown', onKey);
+            document.body.style.overflow = '';
+        }
 
-			{/* Секция услуг */}
-			<section className={styles.sectionDark}>
-				<div className={styles.container}>
-					<h2 className={styles.sectionTitle}>Наши услуги</h2>
-					<div className={styles.services}>
-						<div className={styles.service}>
-							<h3 className={styles.serviceTitle}>Веб-разработка</h3>
-							<p className={styles.serviceDescription}>
-								Создаем современные и быстрые веб-сайты на Next.js и React
-							</p>
-							<ul className={styles.serviceList}>
-								<li>Корпоративные сайты</li>
-								<li>Интернет-магазины</li>
-								<li>Лендинги</li>
-							</ul>
-						</div>
-						<div className={styles.service}>
-							<h3 className={styles.serviceTitle}>Мобильные приложения</h3>
-							<p className={styles.serviceDescription}>
-								Кроссплатформенные приложения для iOS и Android
-							</p>
-							<ul className={styles.serviceList}>
-								<li>React Native</li>
-								<li>Нативные приложения</li>
-								<li>UI/UX дизайн</li>
-							</ul>
-						</div>
-						<div className={styles.service}>
-							<h3 className={styles.serviceTitle}>Техническая поддержка</h3>
-							<p className={styles.serviceDescription}>
-								Поддержка и развитие существующих проектов
-							</p>
-							<ul className={styles.serviceList}>
-								<li>Обновления и фиксы</li>
-								<li>Оптимизация</li>
-								<li>Консультации</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</section>
+        return () => {
+            document.removeEventListener('keydown', onKey);
+            document.body.style.overflow = '';
+        };
+    }, [isModalOpen]);
 
-			{/* Секция с кейсами */}
-			<section className={styles.sectionDark}>
-				<div className={styles.container}>
-					<h2 className={styles.sectionTitle}>Наши работы</h2>
-					<div className={styles.cases}>
-						<div className={styles.case}>
-							<h3 className={styles.caseTitle}>
-								Система видеонаблюдения для ТЦ
-							</h3>
-							<p className={styles.caseDescription}>
-								Установка 48 камер, серверного оборудования, настройка
-								удаленного доступа
-							</p>
-						</div>
-						<div className={styles.case}>
-							<h3 className={styles.caseTitle}>
-								Интеграция 1С с интернет-магазином
-							</h3>
-							<p className={styles.caseDescription}>
-								Автоматизация выгрузки товаров, синхронизация остатков и заказов
-							</p>
-						</div>
-						<div className={styles.case}>
-							<h3 className={styles.caseTitle}>СКУД для офисного центра</h3>
-							<p className={styles.caseDescription}>
-								Система контроля доступа на 150 сотрудников с интеграцией в
-								1С:ЗУП
-							</p>
-						</div>
-					</div>
-				</div>
-			</section>
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
 
-			{/* Секция CTA */}
-			<section className={styles.ctaSection}>
-				<div className={styles.container}>
-					<h2 className={styles.ctaTitle}>Нужна консультация?</h2>
-					<p className={styles.ctaDescription}>
-						Оставьте заявку и наш специалист свяжется с вами в течение 30 минут
-					</p>
-					<div className={styles.ctaButtons}>
-						<Link
-							href='/contacts'
-							className={styles.primaryButton}
-						>
-							Оставить заявку
-						</Link>
-						<a
-							href='tel:+73912749074'
-							className={styles.secondaryButton}
-						>
-							Позвонить: +7 (391) 274-90-74
-						</a>
-					</div>
-				</div>
-			</section>
-		</div>
-	);
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
+
+    const carouselImages: CarouselImage[] = [
+        { id: 1, src: '/client_iskra.png', alt: 'Iskra' },
+        { id: 2, src: '/client_vbh.png', alt: 'VBH' },
+        { id: 3, src: '/client_ses.png', alt: 'SES' },
+        { id: 4, src: '/client_kia.png', alt: 'Kia' },
+        { id: 5, src: '/client_lada.png', alt: 'Lada' },
+        { id: 6, src: '/client_uzhd.png', alt: 'Uzhd' },
+        { id: 7, src: '/client_promet.png', alt: 'Promet' },
+        { id: 8, src: '/client_segal.png', alt: 'Segal' },
+        { id: 9, src: '/client_reno.png', alt: 'Reno' }
+    ];
+
+    // Данные для карточек услуг
+    const securityServices = [
+        {
+            id: 1,
+            href: '/itsm-security/videonablyudenie',
+            title: 'Видеонаблюдение',
+            description: 'Установка систем безопасности',
+            imageSrc: '/security-1.png',
+            imageAlt: 'Видеонаблюдение'
+        },
+        {
+            id: 2,
+            href: '/itsm-security/pozharnaya-signalizatsiya',
+            title: 'Противопожарная система',
+            description: 'Установка сигнализации, пожаротушения',
+            imageSrc: '/security-2.png',
+            imageAlt: 'Противопожарная система'
+        },
+        {
+            id: 3,
+            href: '/itsm-security/okhrannaya-signalizatsiya',
+            title: 'Охранная система',
+            description: 'Монтаж охранных сигнализаций',
+            imageSrc: '/security-3.png',
+            imageAlt: 'Охранная система'
+        },
+        {
+            id: 4,
+            href: '/itsm-security/elektrozamki',
+            title: 'Электрозамки',
+            description: 'Электронные замки для любых типов дверей',
+            imageSrc: '/security-4.png',
+            imageAlt: 'Электрозамки'
+        },
+        {
+            id: 5,
+            href: '/itsm-security/domofoniya',
+            title: 'Домофония',
+            description: 'Визуальный контакт с вашими посетителями',
+            imageSrc: '/security-5.png',
+            imageAlt: 'Домофония'
+        },
+        {
+            id: 6,
+            href: '/itsm-security/kontrol-dostupa',
+            title: 'Контроль доступа',
+            description: 'Полный контроль за перемещением гостей и сотрудников',
+            imageSrc: '/security-6.png',
+            imageAlt: 'Контроль доступа'
+        }
+    ];
+
+    return (
+        <div className={styles.page}>
+            {/* Герой секция */}
+            <section className={`${styles.hero} ${isLoading ? styles.loading : ''}`}>
+                <div className={styles.heroContent}>
+                    <h1 className={`${styles.heroTitle} ${isLoading ? styles.loading : ''}`}>
+                        Системы безопасности в Красноярске
+                    </h1>
+                    <p className={`${styles.heroDescription} ${isLoading ? styles.loading : ''}`}>
+                        Комплексные решения для безопасности и ИТ-инфраструктуры.
+                        Проектирование, монтаж и обслуживание систем любой сложности
+                    </p>
+                </div>
+                <Image
+                    src='/54841601_2_0.jpg'
+                    alt='Системы безопасности'
+                    width={1200}
+                    height={800}
+                    className={`${styles.heroImg} ${isLoading ? styles.loading : ''}`}
+                    priority
+                />
+            </section>
+
+            {/* Секция "Немного о нас" */}
+            <section className={`${styles.sectionDark} ${isLoading ? styles.loading : ''}`}>
+                <div className={styles.container}>
+                    <h2 className={`${styles.sectionTitle} ${isLoading ? styles.loading : ''}`}>
+                        НЕМНОГО О НАС
+                    </h2>
+                    <div className={styles.aboutGrid}>
+                        <div className={styles.aboutContent}>
+                            <p className={styles.aboutText}>
+                                Группа компаний «АйТиСМ» готовы предложить Вам комплексные профессиональные решения в области автоматизации бизнес-процессов, в построении систем безопасности и инфраструктуры инженерных систем.
+                            </p>
+                            <div className={styles.featuresGrid}>
+                                <div className={styles.featureItem}>
+                                    <div className={styles.featureIcon}>
+                                        <Icon name="shield" size={40} />
+                                    </div>
+                                    <div>
+                                        <h3 className={styles.featureTitle}>ПРОФЕССИОНАЛЬНО</h3>
+                                        <p className={styles.featureDescription}>Профессиональная техническая поддержка</p>
+                                    </div>
+                                </div>
+                                <div className={styles.featureItem}>
+                                    <div className={styles.featureIcon}>
+                                        <Icon name="discount" size={40} />
+                                    </div>
+                                    <div>
+                                        <h3 className={styles.featureTitle}>ВЫГОДНО</h3>
+                                        <p className={styles.featureDescription}>Накапливайте и расплачивайтесь бонусами</p>
+                                    </div>
+                                </div>
+                                <div className={styles.featureItem}>
+                                    <div className={styles.featureIcon}>
+                                        <Icon name="wallet" size={40} />
+                                    </div>
+                                    <div>
+                                        <h3 className={styles.featureTitle}>УДОБНО</h3>
+                                        <p className={styles.featureDescription}>Различные способы оплаты</p>
+                                    </div>
+                                </div>
+                                <div className={styles.featureItem}>
+                                    <div className={styles.featureIcon}>
+                                        <Icon name="delivery" size={40} />
+                                    </div>
+                                    <div>
+                                        <h3 className={styles.featureTitle}>ДОСТУПНО</h3>
+                                        <p className={styles.featureDescription}>Доставка во все регионы России</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <Link href="/about" className={styles.detailsButton}>
+                                ПОДРОБНЕЕ
+                            </Link>
+                        </div>
+                        <div className={styles.servicesList}>
+                            <h3 className={styles.servicesListTitle}>Системы безопасности и ИТ-инфраструктура:</h3>
+                            <ul className={styles.servicesItems}>
+                                <li>
+                                    <Icon name="check" size={20} className={styles.serviceIcon} />
+                                    <span>Проектирование, монтаж и обслуживание систем видеонаблюдения</span>
+                                </li>
+                                <li>
+                                    <Icon name="check" size={20} className={styles.serviceIcon} />
+                                    <span>Системы контроля управления доступом (турникеты, шлагбаумы, ограждения)</span>
+                                </li>
+                                <li>
+                                    <Icon name="check" size={20} className={styles.serviceIcon} />
+                                    <span>Металлодетекторы, антикражное оборудование, домофоны</span>
+                                </li>
+                                <li>
+                                    <Icon name="check" size={20} className={styles.serviceIcon} />
+                                    <span>Системы охранно-пожарной сигнализации и оповещения</span>
+                                </li>
+                                <li>
+                                    <Icon name="check" size={20} className={styles.serviceIcon} />
+                                    <span>Телекоммуникационные сети любой сложности (ЛВС, СКС, ВОЛС, Wi-Fi)</span>
+                                </li>
+                                <li>
+                                    <Icon name="check" size={20} className={styles.serviceIcon} />
+                                    <span>Сети электроснабжения</span>
+                                </li>
+                                <li>
+                                    <Icon name="check" size={20} className={styles.serviceIcon} />
+                                    <span>Огнезащита конструкций (металлических, железобетонных и деревянных)</span>
+                                </li>
+                                <li>
+                                    <Icon name="check" size={20} className={styles.serviceIcon} />
+                                    <span>Технический аудит существующих сетей</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Секция "Установка систем безопасности" */}
+            <section className={`${styles.section} ${isLoading ? styles.loading : ''}`}>
+                <div className={styles.container}>
+                    <div className={styles.sectionHeader}>
+                        <h2 className={`${styles.sectionTitle} ${isLoading ? styles.loading : ''}`}>
+                            УСТАНОВКА СИСТЕМ БЕЗОПАСНОСТИ
+                        </h2>
+                    </div>
+                    <div className={styles.securityGrid}>
+                        {securityServices.map((service) => (
+                            <Link
+                                key={service.id}
+                                href={service.href}
+                                className={styles.securityCard}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <div className={styles.securityImage}>
+                                    <Image
+                                        src={service.imageSrc}
+                                        alt={service.imageAlt}
+                                        width={600}
+                                        height={400}
+                                        className={styles.securityImg}
+                                    />
+                                </div>
+                                <h3 className={styles.securityTitle}>{service.title}</h3>
+                                <p className={styles.securityDescription}>{service.description}</p>
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Секция "Наши клиенты" */}
+            <section className={`${styles.sectionDark} ${isLoading ? styles.loading : ''}`}>
+                <div className={styles.container}>
+                    <h2 className={`${styles.sectionTitle} ${isLoading ? styles.loading : ''}`}>
+                        НАШИ КЛИЕНТЫ
+                    </h2>
+                    <Carousel images={carouselImages} itemsToShow={4} allowModal={false} itemWidth="260px" itemHeight="180px" />
+                </div>
+            </section>
+
+            {/* Секция "Уникальное предложение" */}
+            <section className={`${styles.promoSection} ${isLoading ? styles.loading : ''}`}>
+                <div className={styles.container}>
+                    <div className={styles.specialOffer}>
+                        <div className={styles.offerImage}>
+                            <Image
+                                src='/happy-wan-cap-overall-writing-clipboard.jpg'
+                                alt='Уникальное предложение'
+                                width={400}
+                                height={300}
+                                className={styles.offerImg}
+                            />
+                        </div>
+                        <div className={styles.offerContent}>
+                            <h2 className={styles.offerTitle}>Уникальное предложение</h2>
+                            <p className={styles.offerDescription}>
+                                Только при заказе оборудования и услуг монтажа в этом месяце мы предоставляем скидку 5% на:
+                            </p>
+                            <ul className={styles.offerList}>
+                                <li className={styles.offerItem}>
+                                    <Icon name="check" size={20} className={styles.offerIcon} />
+                                    <span>системы автоматической пожарной сигнализации</span>
+                                </li>
+                                <li className={styles.offerItem}>
+                                    <Icon name="check" size={20} className={styles.offerIcon} />
+                                    <span>системы оповещения о пожаре</span>
+                                </li>
+                                <li className={styles.offerItem}>
+                                    <Icon name="check" size={20} className={styles.offerIcon} />
+                                    <span>спринклерной системы пожаротушения</span>
+                                </li>
+                            </ul>
+                            <p className={styles.offerNote}>
+                                Успейте заказать, предложение ограничено!
+                            </p>
+                            <button className={styles.offerButton} onClick={openModal}>
+                                ЗАКАЗАТЬ СО СКИДКОЙ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Модальное окно */}
+            <RequestModal
+                isOpen={isModalOpen}
+                onClose={closeModal}
+            />
+        </div>
+    );
 }

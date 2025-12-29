@@ -1,0 +1,441 @@
+.page {
+    min-height: 100vh;
+    background-color: #fff;
+}
+
+/* Герой секция */
+.hero {
+    text-align: center;
+    padding: 3rem 1rem 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero.loading {
+    opacity: 0;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.1s;
+}
+
+.title.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #6b7280;
+    line-height: 1.5;
+    margin: 0 0 0.5rem 0;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.2s;
+}
+
+.subtitle.loading {
+    animation: none;
+    opacity: 0;
+}
+
+/* Основной контент */
+.content {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 1rem 2rem;
+}
+
+/* Секция услуг */
+.servicesSection {
+    margin: 1.5rem 0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.3s;
+}
+
+.servicesSection.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.servicesTitle {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #e14c04f0;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.servicesList {
+    display: flex;
+    flex-direction: column;
+}
+
+.serviceItem {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #4b5563;
+    text-align: center;
+    padding: 0.5rem;
+    font-weight: 500;
+}
+
+/* Дополнительный текст */
+.text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #4b5563;
+    text-align: center;
+    padding: 1.5rem;
+    background: #f9fafb;
+    border-radius: 0.5rem;
+    margin: 1.5rem 0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.4s;
+}
+
+.text.loading {
+    animation: none;
+    opacity: 0;
+}
+
+/* Секция "Почему мы?" */
+.whySection {
+    background: #f8fafc;
+    padding: 2rem 1rem;
+    margin-top: 1rem;
+}
+
+.whySection.loading {
+    opacity: 0;
+}
+
+.whyTitle {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #1f2937;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.1s;
+}
+
+.whyTitle.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.whyBlock {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.whyItems {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.whyItem {
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background: #fffaf0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.whyItem:nth-child(1) { animation-delay: 0.2s; }
+.whyItem:nth-child(2) { animation-delay: 0.3s; }
+.whyItem:nth-child(3) { animation-delay: 0.4s; }
+.whyItem:nth-child(4) { animation-delay: 0.5s; }
+
+.whyItem.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.whyItem h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1f2937;
+    text-transform: uppercase;
+}
+
+.whyItem p {
+    font-size: 0.95rem;
+    color: #6b7280;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Секция помощи */
+.helpSection {
+    background: #f1f5f9;
+    padding: 2rem 1rem;
+}
+
+.helpSection.loading {
+    opacity: 0;
+}
+
+.helpTitle {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #1f2937;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.1s;
+}
+
+.helpTitle.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.helpBlock {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.helpText {
+    font-size: 1.1rem;
+    color: #4b5563;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.2s;
+}
+
+.helpText.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.contactItem {
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.contactItem:nth-child(1) { animation-delay: 0.3s; }
+.contactItem:nth-child(2) { animation-delay: 0.4s; }
+.contactItem:nth-child(3) { animation-delay: 0.5s; }
+
+.contactItem.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.contactItem h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.phone {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #e14c04f0;
+    text-decoration: none;
+    margin-bottom: 0.25rem;
+    transition: color 0.2s ease;
+}
+
+.phone:hover {
+    color: #c84303;
+}
+
+.hours {
+    font-size: 0.95rem;
+    color: #6b7280;
+    margin: 0;
+    font-weight: 600;
+}
+
+.email {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1f2937;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.email:hover {
+    color: #e14c04f0;
+}
+
+.consultBtn {
+    background: #e14c04f0;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: 100%;
+    display: block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: 0.6s;
+}
+
+.consultBtn.loading {
+    animation: none;
+    opacity: 0;
+}
+
+.consultBtn:hover {
+    background: #c84303;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(225, 76, 4, 0.3);
+}
+
+/* Анимация */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .servicesTitle {
+        font-size: 1rem;
+    }
+    
+    .serviceItem {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+    
+    .text {
+        font-size: 1rem;
+        padding: 1rem;
+    }
+    
+    .whyTitle, .helpTitle {
+        font-size: 1.5rem;
+    }
+    
+    .phone {
+        font-size: 1.3rem;
+    }
+    
+    .email {
+        font-size: 1rem;
+    }
+    
+    .whyItem {
+        padding: 1rem;
+    }
+    
+    .whyItem h3 {
+        font-size: 1rem;
+    }
+    
+    .whyItem p {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 2rem 1rem 1.5rem;
+    }
+    
+    .title {
+        font-size: 1.8rem;
+    }
+    
+    .content {
+        padding: 0 0.75rem 1.5rem;
+    }
+    
+    .whySection, .helpSection {
+        padding: 1.5rem 0.75rem;
+    }
+    
+    .whyBlock, .helpBlock {
+        padding: 1rem;
+    }
+    
+    .whyItems {
+        gap: 1rem;
+    }
+    
+    .servicesList {
+        gap: 0.25rem;
+    }
+    
+    .serviceItem {
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+}
+
+.loading {
+    animation: none !important;
+    opacity: 0 !important;
+}

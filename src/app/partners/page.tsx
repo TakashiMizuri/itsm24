@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Carousel, { CarouselImage } from "../../components/Carousel";
 import styles from "./page.module.css";
 
