@@ -26,9 +26,8 @@
 .modal {
 	background: white;
 	border-radius: 1rem;
-	width: 100%;
-	max-width: 500px;
-	max-height: 90vh;
+    height: 723px;
+    max-height: 90vh;
 	overflow-y: auto;
 	position: relative;
 	animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
