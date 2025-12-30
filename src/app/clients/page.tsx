@@ -22,7 +22,7 @@ export default function Clients() {
             <section className={styles.carouselSection}>
                 <div className={styles.container}>
                     <h1 className={styles.carouselTitle}>Наши клиенты</h1>
-                    <Carousel images={carouselImages} itemsToShow={4} itemWidth="260px" itemHeight="180px" />
+                    <Carousel images={carouselImages} itemsToShow={4} allowModal={false} itemWidth="260px" itemHeight="180px" />
                 </div>
             </section>
         </div>

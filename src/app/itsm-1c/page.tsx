@@ -1,10 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import styles from './page.module.css';
 import Icon from '@/components/Icon';
 import RequestModal from '@/components/RequestModal';
+import ExportedImage from 'next-image-export-optimizer';
 
 export default function Itsm1C() {
 	const [isLoading, setIsLoading] = useState(true); // Добавляем состояние загрузки
@@ -72,13 +72,12 @@ export default function Itsm1C() {
 						Более 5 лет на рынке
 					</p>
 				</div>
-				<Image
+				<ExportedImage
 					src='/smiling-businesswoman-enjoying-talk-with-colleagues-teamwork-with-laptops.jpg'
 					alt='IT решения для бизнеса'
 					width={1000}
 					height={1000}
 					className={`${styles.heroImg} ${isLoading ? styles.loading : ''}`}
-					priority
 				/>
 			</section>
 
@@ -101,7 +100,7 @@ export default function Itsm1C() {
 							}`}
 						>
 							<div className={styles.productImage}>
-								<Image
+								<ExportedImage
 									src='/closeup-caucasian-software-coder-hands-typing-keyboard-front-computer-screens-with-programming-interface-database-developer-sitting-desk-writing-algorithm-it-agency.jpg'
 									alt='Программы 1С'
 									width={400}
@@ -118,7 +117,7 @@ export default function Itsm1C() {
 						</div>
 						<div className={styles.productCard}>
 							<div className={styles.productImage}>
-								<Image
+								<ExportedImage
 									src='/young-woman-working-office-with-laptop-headphones-white-wall-customer-service-call-center.jpg'
 									alt='Сопровождение 1С'
 									width={400}
@@ -138,7 +137,7 @@ export default function Itsm1C() {
 							}`}
 						>
 							<div className={styles.productImage}>
-								<Image
+								<ExportedImage
 									src='/man-woman-working-diagrams-together.jpg'
 									alt='Консультация 1С'
 									width={400}
@@ -215,7 +214,7 @@ export default function Itsm1C() {
 								</li>
 							</ul>
 						</div>
-						<Image
+						<ExportedImage
 							src='/group-people-working-out-business-plan-office.jpg'
 							alt='Сертификаты 1С'
 							width={500}
@@ -393,7 +392,7 @@ export default function Itsm1C() {
 							</ul>
 						</div>
 						<div className={styles.aboutImageContainer}>
-							<Image
+							<ExportedImage
 								src='/ajti-servis-menedzhment.png'
 								alt='Логотип компании АйТиСМ'
 								width={500}

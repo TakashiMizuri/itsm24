@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import styles from './Footer.module.css';
 import Icon from './Icon';
+import ExportedImage from 'next-image-export-optimizer';
 
 export default function Footer() {
 	const currentYear = new Date().getFullYear();
@@ -132,7 +132,7 @@ export default function Footer() {
 											title={social.name}
 										>
 											<div className={styles.socialIconWrapper}>
-												<Image
+												<ExportedImage
 													src={social.icon}
 													alt={social.alt}
 													width={40}

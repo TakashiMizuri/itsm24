@@ -306,6 +306,7 @@
 
 .certificetesListItemIcon {
     stroke: #e14c04f0;
+    min-width: 26px;
 }
 
 .qualificationImg {

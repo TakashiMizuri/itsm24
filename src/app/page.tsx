@@ -1,9 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import styles from './page.module.css';
+import ExportedImage from 'next-image-export-optimizer';
 
 export default function Home() {
     const [isLoading, setIsLoading] = useState(true);
@@ -40,12 +40,11 @@ export default function Home() {
                         <span className={styles.linkText}>Подробнее →</span>
                     </div>
                     <div className={styles.imageWrapper}>
-                        <Image
+                        <ExportedImage
                             src='/security-bg.jpg'
                             alt='Системы безопасности и видеонаблюдения'
                             fill
                             className={`${styles.bgImage} ${isLoading ? styles.loading : ''}`}
-                            priority
                         />
                         <div className={styles.overlay}></div>
                     </div>
@@ -66,12 +65,11 @@ export default function Home() {
                         <span className={styles.linkText}>Подробнее →</span>
                     </div>
                     <div className={styles.imageWrapper}>
-                        <Image
+                        <ExportedImage
                             src='/1c-bg.png'
                             alt='1С продукты'
                             fill
                             className={`${styles.bgImage} ${isLoading ? styles.loading : ''}`}
-                            priority
                         />
                         <div className={styles.overlay}></div>
                     </div>
@@ -113,7 +111,7 @@ export default function Home() {
                         </Link>
                     </div>
                     <div className={styles.companyLogo}>
-                        <Image
+                        <ExportedImage
                             src='/koleso_ishodnik_1.png'
                             alt='Логотип ООО «АйТиСМ»'
                             width={200}

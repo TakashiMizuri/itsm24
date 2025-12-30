@@ -1,12 +1,12 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import styles from './page.module.css';
 import Icon from '@/components/Icon';
 import RequestModal from '@/components/RequestModal';
 import Carousel, { CarouselImage } from '@/components/Carousel';
+import ExportedImage from 'next-image-export-optimizer';
 
 export default function Itsm1C() {
     const [isLoading, setIsLoading] = useState(true);
@@ -126,13 +126,12 @@ export default function Itsm1C() {
                         Проектирование, монтаж и обслуживание систем любой сложности
                     </p>
                 </div>
-                <Image
+                <ExportedImage
                     src='/54841601_2_0.jpg'
                     alt='Системы безопасности'
                     width={1200}
                     height={800}
                     className={`${styles.heroImg} ${isLoading ? styles.loading : ''}`}
-                    priority
                 />
             </section>
 
@@ -248,7 +247,7 @@ export default function Itsm1C() {
                                 rel="noopener noreferrer"
                             >
                                 <div className={styles.securityImage}>
-                                    <Image
+                                    <ExportedImage
                                         src={service.imageSrc}
                                         alt={service.imageAlt}
                                         width={600}
@@ -279,7 +278,7 @@ export default function Itsm1C() {
                 <div className={styles.container}>
                     <div className={styles.specialOffer}>
                         <div className={styles.offerImage}>
-                            <Image
+                            <ExportedImage
                                 src='/happy-wan-cap-overall-writing-clipboard.jpg'
                                 alt='Уникальное предложение'
                                 width={400}

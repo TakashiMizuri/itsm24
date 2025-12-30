@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import styles from './page.module.css';
 import Icon from '@/components/Icon';
-import Image from 'next/image';
+import ExportedImage from 'next-image-export-optimizer';
 // import { useModal } from '@/context/ModalContext';
 
 export default function ContactPage() {
@@ -237,7 +237,7 @@ export default function ContactPage() {
 									title={social.name}
 								>
 									<div className={styles.socialIconWrapper}>
-										<Image
+										<ExportedImage
 											src={social.icon}
 											alt={social.alt}
 											width={24}

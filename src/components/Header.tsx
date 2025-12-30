@@ -3,9 +3,9 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import styles from './Header.module.css';
-import Image from 'next/image';
 import Icon from './Icon';
 import RequestModal from './RequestModal'; // Добавляем импорт
+import ExportedImage from 'next-image-export-optimizer';
 
 export default function Header() {
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -147,7 +147,7 @@ export default function Header() {
                         onClick={closeAllDropdowns}
                     >
                         <div className={styles.logoContainer}>
-                            <Image
+                            <ExportedImage
                                 src='/koleso_ishodnik_1.png'
                                 alt='ООО «АйТиСМ» - Красноярск'
                                 width={70}
